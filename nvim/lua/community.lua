@@ -67,6 +67,7 @@ return {
     },
   },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },

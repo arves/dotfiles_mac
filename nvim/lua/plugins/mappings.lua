@@ -29,14 +29,21 @@ return {
           ["<leader>sd"] = { ":WindowsDisableAutowidth<CR>", desc = "Disable autowidth" },
           ["<leader>st"] = { ":WindowsToggleAutowidth<CR>", desc = "Toggle autowidth" },
 
-          -- Diffview
+          -- Diffview and dadbod
 
-          ["<leader>D"] = { desc = "Diffview" },
+          ["<leader>D"] = { desc = "Diff and DB" },
           ["<leader>Df"] = { ":DiffviewFileHistory %<CR>", desc = "Current file history" },
           ["<leader>DF"] = { ":DiffviewRefresh<CR>", desc = "All history" },
           ["<leader>Dc"] = { ":DiffviewOpen<CR>", desc = "Changed files" },
           ["<leader>Dr"] = { ":DiffviewRefresh<CR>", desc = "Refresh" },
           ["<leader>Dq"] = { ":DiffviewClose<CR>", desc = "Close diffview" },
+
+          ["<leader>Dd"] = { desc = "DB " },
+          ["<leader>Ddt"] = { ":DBUIToggle<CR>", desc = "Toggle Dadbod UI" },
+          ["<leader>Dda"] = { ":DBUIAddConnection<CR>", desc = "Add new db connection" },
+          ["<leader>Ddu"] = { ":DBUI<CR>", desc = "Dadbod UI" },
+          ["<leader>Ddf"] = { ":DBUIFindBuffer<CR>", desc = "DB find buffer" },
+          ["<leader>Ddc"] = { ":DBCompletionClearCache<CR>", desc = "DB clear completion" },
 
           -- copilot
           ["<leader>U"] = { desc = "Copilot" },
