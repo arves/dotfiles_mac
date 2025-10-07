@@ -9,6 +9,7 @@ return {
   { import = "astrocommunity.completion.cmp-spell" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
 
+  -- Silly comment
   -- file explorer
   { import = "astrocommunity.file-explorer.oil-nvim" },
 
