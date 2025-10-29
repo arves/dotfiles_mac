@@ -83,4 +83,6 @@ return {
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
+
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
 }
