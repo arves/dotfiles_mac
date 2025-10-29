@@ -32,6 +32,39 @@ The configuration follows NvChad's modular pattern where each file imports base 
 - LSP servers enabled: html, cssls (lua/configs/lspconfig.lua:3)
 - Formatters: stylua for Lua (lua/configs/conform.lua:3)
 
+### NvChad Plugin Locations (Important!)
+
+NvChad is loaded as a lazy.nvim plugin, so its source code lives in the Neovim data directory, **not in this config directory**. When troubleshooting or understanding NvChad's default behavior:
+
+**Key NvChad Files:**
+- Default mappings: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/mappings.lua`
+- Plugin definitions: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/plugins/init.lua`
+- Default options: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/options.lua`
+- Default autocmds: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/autocmds.lua`
+
+**Other Plugin Locations:**
+- WhichKey plugin: `~/.local/share/nvim/lazy/which-key.nvim/`
+- Base46 (theming): `~/.local/share/nvim/lazy/base46/`
+- NvChad UI: `~/.local/share/nvim/lazy/ui/`
+
+**Why this matters:**
+- When you see `require "nvchad.mappings"` in your config, it's loading from `~/.local/share/nvim/lazy/NvChad/`
+- To understand what default keybindings exist, check the NvChad mappings file
+- To see how plugins like WhichKey are configured by default, check NvChad's plugin definitions
+- User configs in this directory **extend** the NvChad defaults by importing them first
+
+**Quick search commands:**
+```bash
+# Find NvChad default mappings
+cat ~/.local/share/nvim/lazy/NvChad/lua/nvchad/mappings.lua
+
+# Search for specific keybinding in NvChad defaults
+grep -r "leader.*f" ~/.local/share/nvim/lazy/NvChad/lua/nvchad/
+
+# List all NvChad plugins
+ls ~/.local/share/nvim/lazy/
+```
+
 ## Code Style
 
 ### Lua Formatting (stylua)

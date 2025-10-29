@@ -47,6 +47,22 @@ This file documents the reasoning behind configuration choices in this NvChad se
 **Reasoning:** _(Document why - easier to reach than ESC key? Common vim pattern?)_
 **Location:** `lua/mappings.lua:8`
 
+### WhichKey Group Labels
+**Decision:** Add descriptive group labels for leader key bindings
+**Reasoning:** NvChad's default WhichKey setup shows generic "+N keymaps" labels which don't convey what functionality is grouped under each prefix. Adding explicit group names (e.g., "Find/Files" for `<leader>f`, "Git" for `<leader>g`) improves discoverability and makes it easier to remember what keybindings are available.
+**Location:** `lua/mappings.lua:11-22`
+**Date:** 2025-10-30
+**Groups Defined:**
+- `<leader>c`: Code/Comments
+- `<leader>d`: Diagnostics
+- `<leader>f`: Find/Files
+- `<leader>g`: Git
+- `<leader>m`: Marks
+- `<leader>p`: Pick
+- `<leader>r`: Rename/Refactor
+- `<leader>t`: Terminal/Theme
+- `<leader>w`: WhichKey/Windows
+
 ## Performance Optimizations
 
 ### Disabled Default Plugins
