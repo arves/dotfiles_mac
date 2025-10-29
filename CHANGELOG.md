@@ -22,6 +22,7 @@ Each entry should include:
 
 ### Neovim
 - **Added**: vim-tmux-navigator plugin for seamless tmux/nvim navigation
+- **Fixed**: vim-tmux-navigator keybindings now work correctly with Ctrl-hjkl navigation between tmux and nvim
 - **Reason**: See `nvim/CHANGELOG.md` for details
 
 ## 2025-10-29

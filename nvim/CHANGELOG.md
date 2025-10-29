@@ -12,6 +12,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - vim-tmux-navigator plugin for seamless navigation between tmux panes and Neovim splits
 - WhichKey group labels for leader key bindings (descriptive categories instead of "+N keymaps")
 
+### Fixed
+- **vim-tmux-navigator keybindings**: Fixed conflicting lazy-loading configuration that prevented Ctrl-hjkl navigation from working between Neovim and tmux
+  - Removed conflicting `cmd` and `keys` specifications from plugin spec (was conflicting with `lazy = false`)
+  - Added explicit keybinding mappings in `mappings.lua` for TmuxNavigate commands
+  - Navigation now works seamlessly in both directions (nvim → tmux and tmux → nvim)
+
 ### Changed
 - Switched to NvChad v2.5 based configuration
 - WhichKey configuration: Added descriptive group names for <leader>c, d, f, g, m, p, r, t, w

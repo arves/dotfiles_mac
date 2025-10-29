@@ -50,7 +50,7 @@ This file documents the reasoning behind configuration choices in this NvChad se
 ### WhichKey Group Labels
 **Decision:** Add descriptive group labels for leader key bindings
 **Reasoning:** NvChad's default WhichKey setup shows generic "+N keymaps" labels which don't convey what functionality is grouped under each prefix. Adding explicit group names (e.g., "Find/Files" for `<leader>f`, "Git" for `<leader>g`) improves discoverability and makes it easier to remember what keybindings are available.
-**Location:** `lua/mappings.lua:11-22`
+**Location:** `lua/mappings.lua:24-32`
 **Date:** 2025-10-30
 **Groups Defined:**
 - `<leader>c`: Code/Comments
@@ -62,6 +62,18 @@ This file documents the reasoning behind configuration choices in this NvChad se
 - `<leader>r`: Rename/Refactor
 - `<leader>t`: Terminal/Theme
 - `<leader>w`: WhichKey/Windows
+
+### vim-tmux-navigator Integration
+**Decision:** Use vim-tmux-navigator for seamless navigation between tmux panes and Neovim splits
+**Reasoning:** Provides unified Ctrl-hjkl navigation across both tmux and Neovim, eliminating cognitive overhead of different navigation paradigms. Requires careful configuration to avoid conflicts with NvChad's default mappings.
+**Location:** `lua/plugins/init.lua:16-20`, `lua/mappings.lua:10-22`
+**Date:** 2025-10-30
+**Implementation Details:**
+- Plugin loaded with `lazy = false` (no lazy-loading triggers to avoid conflicts)
+- NvChad's default Ctrl-hjkl mappings deleted first
+- Explicit keybindings added for TmuxNavigate commands
+- Works bidirectionally (nvim → tmux and tmux → nvim)
+**Related:** Root-level integration documented in `~/.config/CLAUDE.md` and `~/.config/DECISIONS.md`
 
 ## Performance Optimizations
 
