@@ -56,7 +56,13 @@ This file tracks all plugins, their purposes, and configuration notes.
 
 ## User-Added Plugins
 
-_(Document plugins you add here)_
+### vim-tmux-navigator
+- **Plugin:** christoomey/vim-tmux-navigator
+- **Purpose:** Seamless navigation between tmux panes and Neovim splits using the same `<C-h/j/k/l>` keybindings
+- **Config:** No additional config needed (loaded immediately with `lazy = false`)
+- **Keymaps:** Uses default `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>` for navigation
+- **Added:** 2025-10-29
+- **Notes:** Requires tmux configuration in `~/.tmux.conf` for full functionality. See plugin README for tmux setup instructions.
 
 ### Template
 ```markdown

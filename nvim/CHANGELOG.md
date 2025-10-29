@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Context tracking system with CHANGELOG, DECISIONS, PLUGINS, and .context/ directory
 - CLAUDE.md for AI assistant guidance
+- vim-tmux-navigator plugin for seamless navigation between tmux panes and Neovim splits
 
 ### Changed
 - Switched to NvChad v2.5 based configuration

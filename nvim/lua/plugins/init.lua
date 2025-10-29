@@ -13,6 +13,12 @@ return {
     end,
   },
 
+  -- Seamless navigation between tmux panes and vim splits
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
