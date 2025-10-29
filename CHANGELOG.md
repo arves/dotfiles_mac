@@ -25,6 +25,12 @@ Each entry should include:
 - **Fixed**: vim-tmux-navigator keybindings now work correctly with Ctrl-hjkl navigation between tmux and nvim
 - **Reason**: See `nvim/CHANGELOG.md` for details
 
+### tmux
+- **Added**: Explicit vim-tmux-navigator keybindings for Ctrl-hjkl with vim/nvim detection
+- **Added**: Copy-mode-vi keybindings for seamless navigation (Ctrl-hjkl in copy mode)
+- **Improved**: Comments and formatting for vim-tmux-navigator configuration
+- **Reason**: Required for bidirectional navigation between tmux panes and Neovim splits
+
 ## 2025-10-29
 
 ### Neovim
