@@ -134,6 +134,18 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ---
 
+## Editor Behavior
+
+### Scroll Speed: 20 lines per <C-u>/<C-d>
+**Decision:** Set `scroll = 20` for `<C-u>` and `<C-d>` commands
+**Reasoning:** Default behavior scrolls half the window height, which can be slow for large windows. Setting a fixed scroll distance of 20 lines provides consistent, faster scrolling regardless of window size.
+**Location:** `lua/plugins/astrocore.lua:41`
+**Date:** 2025-10-30
+**Alternative:** Could keep default (0 = half window), but fixed distance feels more predictable and faster
+**Adjustment:** Can increase/decrease the number based on preference (try 15-30 range)
+
+---
+
 ## Known Issues
 
 ### lspconfig Deprecation Warning (Neovim 0.11+) - RESOLVED
