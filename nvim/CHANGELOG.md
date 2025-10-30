@@ -64,7 +64,10 @@ Imported from astrocommunity for enhanced functionality:
 - nvim-coverage, neotest
 
 **Utility:**
-- noice.nvim, nvcheatsheet.nvim
+- noice.nvim
+
+**Keybinding:**
+- nvcheatsheet.nvim
 
 **Language Packs:**
 - python-ruff (Python with pyright + ruff)

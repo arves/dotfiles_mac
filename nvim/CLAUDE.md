@@ -61,7 +61,7 @@ Plugins imported from AstroCommunity (see `lua/community.lua`):
 - neogit - Magit-like Git interface
 
 ### Keybinding
-- nvcheatsheet.nvim - Searchable cheatsheet
+- nvcheatsheet.nvim - Searchable cheatsheet (Note: Despite the name, this is a standalone plugin, not NvChad-specific)
 
 ### LSP
 - inc-rename.nvim - Incremental LSP rename with preview

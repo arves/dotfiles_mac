@@ -50,6 +50,7 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 
 ### Keybinding & Help
 - **nvcheatsheet.nvim** - Searchable keybinding cheatsheet
+  - **Note:** Despite the "nv" prefix, this is a standalone plugin from AstroCommunity, not NvChad-specific
 
 ### LSP Enhancement
 - **inc-rename.nvim** - Incremental LSP rename with live preview
