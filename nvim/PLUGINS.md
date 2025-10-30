@@ -6,7 +6,7 @@ This file tracks all plugins, their purposes, and configuration notes for this A
 
 ### AstroNvim
 - **Repository:** AstroNvim/AstroNvim
-- **Version:** v4
+- **Version:** v5 (migrated from v4 on 2025-10-30)
 - **Purpose:** Base Neovim distribution providing structured configuration framework
 - **Config:** Entry point in `init.lua`, core settings in `lua/plugins/astrocore.lua`
 
@@ -20,12 +20,24 @@ This file tracks all plugins, their purposes, and configuration notes for this A
 Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for imports.
 
 ### Completion & AI
-- **blink-cmp-tmux** - tmux completion source
-- **blink-cmp-git** - git completion source
-- **cmp-nvim-lua** - Neovim Lua API completion
-- **cmp-spell** - Spell checker completion
-- **copilot-lua-cmp** - GitHub Copilot integration for code suggestions
+
+#### Completion Engine: blink.cmp (v5 default)
+- **blink.cmp** - Performant completion plugin (replaces nvim-cmp in v5)
+  - **Built-in sources:** LSP, buffer, path, snippets
+  - **Performance:** Written in Rust for speed
+  - **Migration:** Replaced nvim-cmp on 2025-10-30
+
+#### Completion Sources
+- **blink-cmp-tmux** - tmux completion source (blink.cmp compatible)
+- **blink-cmp-git** - git completion source (blink.cmp compatible)
+- **copilot-lua-cmp** - GitHub Copilot integration (updated for blink.cmp support)
+
+#### AI Assistance
 - **copilotchat.nvim** - AI pair programming chat interface
+
+**Note:** Removed in v5 migration:
+- ~~cmp-nvim-lua~~ - nvim-cmp only, not compatible with blink.cmp
+- ~~cmp-spell~~ - nvim-cmp only, not compatible with blink.cmp
 
 ### File Management
 - **oil.nvim** - Edit filesystem like a buffer
@@ -84,9 +96,15 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 - **neotest** - Testing framework with inline test results
 
 ### UI Enhancement
-- **noice.nvim** - Enhanced UI for messages, cmdline, and popupmenu
-  - **Custom Config:** Routes to silence CopilotChat messages
-  - **Location:** `lua/community.lua:51-76`
+- **snacks.nvim** - Collection of QoL plugins (v5 default)
+  - **Features:** Dashboard, notifications, input/select dialogs, indent guides
+  - **Replaces:** noice.nvim (notifications), alpha.nvim (dashboard), dressing.nvim, indent-blankline
+  - **Custom Config:** KP CREW dashboard
+  - **Location:** `lua/plugins/user.lua`
+
+**Note:** Removed in v5 migration:
+- ~~noice.nvim~~ - Replaced by snacks.nvim for notifications and UI
+- ~~alpha.nvim~~ - Replaced by snacks.nvim dashboard
 
 ### Scrolling
 - **neoscroll.nvim** - Smooth scrolling animations

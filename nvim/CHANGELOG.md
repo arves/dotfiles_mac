@@ -6,22 +6,68 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Added
-- Context tracking system with CHANGELOG, DECISIONS, PLUGINS, and CLAUDE.md
-- CLAUDE.md for AI assistant guidance
-- Documentation structure following dotfiles repository pattern
+## [2025-10-30] - AstroNvim v5 Migration
 
-### Changed
-- Increased scroll speed: Configured neoscroll.nvim to scroll 0.75 (75%) of window height instead of default 0.5 (50%) for `<C-u>` and `<C-d>` commands
-- Updated neoscroll.nvim configuration to use modern API (`vim.keymap.set()` with direct `neoscroll.scroll()` calls) instead of deprecated `set_mappings()` function
+### Major Changes
+- **Upgraded to AstroNvim v5** from v4
+- **Completion Engine**: Migrated from nvim-cmp to blink.cmp (v5 default)
+- **Notifications**: Replaced noice.nvim with snacks.nvim (v5 default)
+- **Dashboard**: Alpha-nvim replaced with snacks.nvim dashboard (v5 default)
+- **Icons**: nvim-web-devicons replaced with mini.icons (v5 default)
 
-### Removed
-- nvcheatsheet.nvim - Plugin no longer available in AstroCommunity (was causing clone errors)
+### Plugin Changes
 
-### Fixed
-- lspconfig deprecation warnings resolved after running `:AstroUpdate` (2025-10-30)
-- AstroCommunity packages updated to use new Neovim 0.11 vim.lsp.config API
-- neoscroll.nvim deprecation warnings resolved by migrating to modern API
+#### Removed
+- **noice.nvim** - Replaced by snacks.nvim for notifications and UI enhancements
+- **cmp-nvim-lua** - nvim-cmp source, incompatible with blink.cmp
+- **cmp-spell** - nvim-cmp source, incompatible with blink.cmp
+
+#### Updated for v5 Compatibility
+- **copilot-lua-cmp** - Now supports blink.cmp
+- **blink-cmp-tmux** - Native blink.cmp source for tmux completion
+- **blink-cmp-git** - Native blink.cmp source for git completion
+- **snacks.nvim** - Handles dashboard, notifications, and other UI features
+
+#### Retained (All Compatible)
+- catppuccin (with transparent background)
+- oil.nvim, trouble.nvim, zen-mode.nvim, copilotchat.nvim
+- diffview.nvim, neogit
+- inc-rename.nvim
+- flash.nvim, harpoon, nvim-surround
+- windows.nvim
+- vim-tmux-navigator
+- nvim-coverage, neotest
+- neoscroll.nvim (with custom 75% scroll configuration)
+- All language packs (python-ruff, typescript-all-in-one, rust, go, lua, bash, php, markdown, full-dadbod)
+
+### Configuration Changes
+
+#### astrocore.lua
+- Updated buffer close mapping to use `snacks.dashboard.open()` instead of `alpha.start()`
+
+#### community.lua
+- Removed noice.nvim configuration (custom routes for silencing CopilotChat messages)
+- Removed nvim-cmp-only completion sources
+- Added blink.cmp-compatible completion sources
+
+#### Completion Features
+- **Built-in sources**: blink.cmp includes LSP, buffer, path, and snippets by default
+- **Additional sources**: tmux, git (via blink-cmp plugins)
+- **Copilot integration**: Maintained through updated copilot-lua-cmp
+
+### Migration Notes
+- Configuration tested with Neovim v0.11.4
+- All custom keybindings preserved in mappings.lua
+- Transparent background maintained for Catppuccin theme
+- KP CREW dashboard preserved
+- Mouse disabled setting maintained (polish.lua)
+- All formatters preserved (stylua, prettier, biome via none-ls)
+- Treesitter incremental selection keymaps preserved
+
+### Breaking Changes from v4
+- nvim-cmp plugins no longer compatible (use blink.cmp sources)
+- noice.nvim removed (UI handled by snacks.nvim)
+- Minor code action selection delay when using snacks.nvim (known Neovim core issue)
 
 ## [2025-10-30]
 

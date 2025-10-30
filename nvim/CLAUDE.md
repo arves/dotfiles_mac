@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a personal Neovim configuration based on **AstroNvim v4**. AstroNvim is a feature-rich Neovim distribution that provides a robust foundation for customization while maintaining excellent defaults.
+This is a personal Neovim configuration based on **AstroNvim v5**. AstroNvim is a feature-rich Neovim distribution that provides a robust foundation for customization while maintaining excellent defaults.
+
+**Version History:**
+- **v5** (Current) - Migrated 2025-10-30
+- **v4** - Used until 2025-10-30
 
 ## Architecture
 
@@ -22,7 +26,6 @@ AstroNvim uses a modular configuration approach:
   - `mason.lua` - Mason tool installer configuration
   - `none-ls.lua` - None-ls (null-ls) formatter/linter configuration
   - `user.lua` - User-specific plugin overrides and custom dashboard
-  - `cmp.lua` - Completion engine configuration
   - `treesitter.lua` - Treesitter configuration
   - `init.lua` - Additional custom plugins
 
@@ -36,12 +39,12 @@ AstroNvim uses a modular configuration approach:
 
 Plugins imported from AstroCommunity (see `lua/community.lua`):
 
-### Completion
+### Completion (blink.cmp)
+- **Completion Engine**: blink.cmp (v5 default, replaces nvim-cmp)
+- **Built-in sources**: LSP, buffer, path, snippets
 - blink-cmp-tmux - tmux completion source
 - blink-cmp-git - git completion source
-- cmp-nvim-lua - Neovim Lua API completion
-- cmp-spell - spell checker completion
-- copilot-lua-cmp - GitHub Copilot integration
+- copilot-lua-cmp - GitHub Copilot integration (supports blink.cmp)
 
 ### File Explorer
 - oil-nvim - Edit filesystem like a buffer
@@ -82,7 +85,7 @@ Plugins imported from AstroCommunity (see `lua/community.lua`):
 - neotest - Testing framework
 
 ### Utility
-- noice.nvim - Enhanced UI for messages, cmdline, popupmenu
+- snacks.nvim - Provides dashboard, notifications, and other UI enhancements (v5 default, replaces noice.nvim and alpha.nvim)
 
 ### Language Packs
 - bash - Bash language support
@@ -115,7 +118,7 @@ LSP configuration including:
 ### community.lua
 All AstroCommunity plugin imports with custom configurations for:
 - Catppuccin transparent background
-- Noice.nvim custom routes and presets
+- Neoscroll.nvim custom scroll settings (75% window height for Ctrl-u/Ctrl-d)
 
 ## Language Support
 
@@ -202,7 +205,10 @@ AstroCommunity language packs have been updated to use the new Neovim 0.11 `vim.
 
 ## Notes
 
-- Configuration follows AstroNvim patterns and conventions
+- **v5 Migration**: Successfully migrated from AstroNvim v4 to v5 on 2025-10-30
+- Configuration follows AstroNvim v5 patterns and conventions
 - Most plugins are imported from AstroCommunity for easier maintenance
 - Custom configurations are minimal and only override defaults when needed
 - Python support is already configured via the python-ruff pack
+- **Completion Engine**: Uses blink.cmp (v5 default) instead of nvim-cmp
+- **UI/Notifications**: Uses snacks.nvim (v5 default) instead of noice.nvim and alpha.nvim

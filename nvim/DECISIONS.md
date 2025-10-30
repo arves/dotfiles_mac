@@ -4,10 +4,28 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ## Architecture Decisions
 
-### Why AstroNvim v4?
+### AstroNvim v5 Migration
+**Decision:** Upgrade from AstroNvim v4 to v5
+**Reasoning:**
+- **Modernization**: v5 includes plugin updates and performance improvements
+- **Better defaults**: blink.cmp is faster than nvim-cmp
+- **Unified UI**: snacks.nvim consolidates dashboard, notifications, and UI features
+- **Future-proofing**: Stay current with AstroNvim development
+- **Minimal breaking changes**: Migration was straightforward with clear upgrade path
+**Date:** 2025-10-30
+**Requirements:** Neovim 0.10+ (tested with 0.11.4)
+**Trade-offs:**
+- Lost noice.nvim custom routes (CopilotChat message silencing)
+- Minor code action selection UI delay with snacks.nvim (known Neovim core issue)
+- Need to use blink.cmp-compatible completion sources
+
+### Why AstroNvim?
 **Decision:** Use AstroNvim as the base Neovim distribution
 **Reasoning:** AstroNvim provides a well-structured, feature-rich base with excellent defaults. It includes a comprehensive plugin ecosystem (AstroCommunity) that simplifies configuration management while still allowing full customization.
 **Date:** Original configuration
+**Version History:**
+- v5: Current (2025-10-30 onwards)
+- v4: Used until 2025-10-30
 **Alternative Considered:** NvChad v2.5 - Tried temporarily but decided AstroNvim better suited needs
 **Trade-offs:** More opinionated than bare Neovim but significantly reduces configuration overhead
 
@@ -27,11 +45,37 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 **Location:** `lua/community.lua:17-24`
 **Date:** Original configuration
 
-### UI Enhancement: noice.nvim
-**Decision:** Use noice.nvim for enhanced UI
-**Reasoning:** Provides better visual feedback for messages, cmdline, and popupmenu. Custom routes configured to silence annoying CopilotChat messages.
-**Location:** `lua/community.lua:51-76`
-**Date:** Original configuration
+### UI Enhancement: snacks.nvim (v5)
+**Decision:** Use snacks.nvim for UI enhancements (replaces noice.nvim, alpha.nvim, dressing.nvim in v5)
+**Reasoning:**
+- **v5 Default**: AstroNvim v5 standardizes on snacks.nvim for UI features
+- **Consolidated**: Single plugin handles dashboard, notifications, input/select, indent guides
+- **Performance**: Written by folke, well-maintained and performant
+- **Custom dashboard**: KP CREW logo preserved through snacks.nvim configuration
+**Location:** `lua/plugins/user.lua` (dashboard), integrated in AstroNvim v5 core
+**Date:** 2025-10-30 (v5 migration)
+**Replaces:**
+- ~~noice.nvim~~ (notifications, UI) - Removed in v5 migration
+- ~~alpha.nvim~~ (dashboard) - Replaced by snacks dashboard
+- ~~dressing.nvim~~ (input/select) - Replaced by snacks
+**Trade-off:** Lost custom noice routes for silencing CopilotChat messages, but snacks provides better overall integration
+
+### Completion Engine: blink.cmp (v5)
+**Decision:** Use blink.cmp instead of nvim-cmp (v5 default)
+**Reasoning:**
+- **Performance**: blink.cmp is significantly faster than nvim-cmp (written in Rust)
+- **v5 Default**: AstroNvim v5 standardized on blink.cmp
+- **Built-in sources**: Includes LSP, buffer, path, and snippets out of the box
+- **Compatibility layer**: Can use some nvim-cmp sources via blink.compat if needed
+- **Active development**: Modern, actively maintained project
+**Location:** Managed by AstroNvim v5 core
+**Date:** 2025-10-30 (v5 migration)
+**Replaces:** nvim-cmp
+**Migration Notes:**
+- Removed `cmp-nvim-lua` and `cmp-spell` (nvim-cmp only)
+- Kept `blink-cmp-tmux` and `blink-cmp-git` (native blink sources)
+- Updated `copilot-lua-cmp` (now supports blink.cmp)
+**Trade-off:** Fewer completion sources available compared to nvim-cmp ecosystem, but performance gains are significant
 
 ## LSP and Language Support
 

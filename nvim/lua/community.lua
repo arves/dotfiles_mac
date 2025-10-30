@@ -5,11 +5,10 @@ return {
   -- Completion plugins
   { import = "astrocommunity.completion.blink-cmp-tmux" },
   { import = "astrocommunity.completion.blink-cmp-git" },
-  { import = "astrocommunity.completion.cmp-nvim-lua" },
-  { import = "astrocommunity.completion.cmp-spell" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" }, -- Now supports blink.cmp
+  -- NOTE: Removed cmp-nvim-lua and cmp-spell (nvim-cmp only, not compatible with blink.cmp)
+  -- blink.cmp has built-in LSP, buffer, path, and snippets sources
 
-  -- Silly longer stupid comment
   -- file explorer
   { import = "astrocommunity.file-explorer.oil-nvim" },
 
@@ -31,15 +30,11 @@ return {
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.neogit" },
 
-  -- { import = "astrocommunity.keybinding.nvcheatsheet-nvim" }, -- Removed: Plugin no longer available in AstroCommunity
-
   { import = "astrocommunity.lsp.inc-rename-nvim" },
 
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.harpoon" },
   { import = "astrocommunity.motion.nvim-surround" },
-
-  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 
   { import = "astrocommunity.split-and-window.windows-nvim" },
 
@@ -48,32 +43,8 @@ return {
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.test.neotest" },
 
-  { import = "astrocommunity.utility.noice-nvim" },
-  {
-    "folke/noice.nvim",
-    opts = {
-      lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-        },
-      },
-      routes = {
-        {
-          -- Disable annoying copilot messages
-          filter = { event = "msg_show", find = "CopilotChat" },
-          opts = { skip = true },
-        },
-      },
-      presets = {
-        bottom_search = false, -- use a classic bottom cmdline for search
-        command_palette = false, -- position the cmdline and popupmenu together
-        inc_rename = true,
-      },
-    },
-  },
+  -- NOTE: noice.nvim removed - snacks.nvim now handles notifications in v5
+
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.go" },
