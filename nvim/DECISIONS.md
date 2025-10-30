@@ -1,87 +1,146 @@
 # Configuration Decisions
 
-This file documents the reasoning behind configuration choices in this NvChad setup.
+This file documents the reasoning behind configuration choices in this AstroNvim setup.
 
 ## Architecture Decisions
 
-### Why NvChad v2.5?
-**Decision:** Use NvChad as a base configuration framework
-**Reasoning:** NvChad provides a well-structured, performant base with sensible defaults while allowing full customization through the import-and-extend pattern.
-**Date:** 2025-10-29
+### Why AstroNvim v4?
+**Decision:** Use AstroNvim as the base Neovim distribution
+**Reasoning:** AstroNvim provides a well-structured, feature-rich base with excellent defaults. It includes a comprehensive plugin ecosystem (AstroCommunity) that simplifies configuration management while still allowing full customization.
+**Date:** Original configuration
+**Alternative Considered:** NvChad v2.5 - Tried temporarily but decided AstroNvim better suited needs
+**Trade-offs:** More opinionated than bare Neovim but significantly reduces configuration overhead
 
 ### Plugin Manager: lazy.nvim
-**Decision:** Use lazy.nvim for plugin management
-**Reasoning:** NvChad v2.5 uses lazy.nvim by default. It provides lazy-loading, fast startup times, and excellent plugin management features.
-**Date:** 2025-10-29
+**Decision:** Use lazy.nvim for plugin management (managed by AstroNvim)
+**Reasoning:** AstroNvim uses lazy.nvim by default. It provides lazy-loading, fast startup times, and excellent plugin management features.
+**Date:** Original configuration
 
 ## Theme and UI
 
-### Theme: onedark
-**Decision:** Use onedark color scheme
-**Reasoning:** _(Document your reasoning here when you make this decision)_
-**Location:** `lua/chadrc.lua:9`
+### Colorscheme: Catppuccin with Transparent Background
+**Decision:** Use Catppuccin Mocha theme with transparent background
+**Reasoning:**
+- Catppuccin provides excellent syntax highlighting with comfortable colors
+- Transparent background allows terminal background to show through
+- Consistent with terminal (WezTerm) and tmux theming
+**Location:** `lua/community.lua:17-24`
+**Date:** Original configuration
+
+### UI Enhancement: noice.nvim
+**Decision:** Use noice.nvim for enhanced UI
+**Reasoning:** Provides better visual feedback for messages, cmdline, and popupmenu. Custom routes configured to silence annoying CopilotChat messages.
+**Location:** `lua/community.lua:51-76`
+**Date:** Original configuration
 
 ## LSP and Language Support
 
-### Initial LSP Servers: html, cssls
-**Decision:** Start with HTML and CSS language servers
-**Reasoning:** _(Document your reasoning - are you doing web development? These are just examples?)_
-**Location:** `lua/configs/lspconfig.lua:3`
-**Date:** 2025-10-29
+### Language Packs via AstroCommunity
+**Decision:** Use AstroCommunity language packs instead of manual LSP configuration
+**Reasoning:** Language packs provide pre-configured LSP, formatters, linters, and debuggers for each language. Significantly reduces configuration overhead and ensures best practices.
+**Location:** `lua/community.lua:77-85`
+**Date:** Original configuration
 
-### Formatter: stylua
-**Decision:** Use stylua for Lua formatting
-**Reasoning:** Industry-standard Lua formatter with opinionated defaults. Configuration set to 120 char width, 2 space indentation, no call parentheses for cleaner code.
-**Location:** `lua/configs/conform.lua:3`, `.stylua.toml`
-**Date:** 2025-10-29
+### Python: Ruff over Black/isort
+**Decision:** Use python-ruff pack (pyright + ruff) instead of traditional black + isort
+**Reasoning:**
+- Ruff is 10-100x faster than black
+- Consolidates multiple tools (black, isort, flake8, pylint) into one
+- Provides both formatting and linting
+- Modern, actively developed Rust-based tooling
+**Location:** `lua/community.lua:83`
+**Date:** Original configuration
+**Alternative:** black + isort + flake8 (traditional Python tooling)
 
-## Keybindings
+### Language Coverage
+**Decision:** Support multiple languages (Python, TypeScript, Rust, Go, Lua, Bash, PHP, Markdown)
+**Reasoning:** Full-stack development requires diverse language support. AstroCommunity packs make it trivial to add comprehensive language support.
+**Location:** `lua/community.lua:77-85`
+**Date:** Original configuration
 
-### Semicolon for Command Mode
-**Decision:** Map `;` to `:` in normal mode
-**Reasoning:** _(Document why - faster access to command mode? Personal preference?)_
-**Location:** `lua/mappings.lua:7`
+## Editing and Motion
 
-### jk for Escape
-**Decision:** Map `jk` to `<ESC>` in insert mode
-**Reasoning:** _(Document why - easier to reach than ESC key? Common vim pattern?)_
-**Location:** `lua/mappings.lua:8`
+### Copilot Integration
+**Decision:** Use GitHub Copilot with CopilotChat
+**Reasoning:** AI-assisted coding significantly improves productivity. CopilotChat provides conversational interface for code explanations and refactoring.
+**Location:** `lua/community.lua:10,29`
+**Date:** Original configuration
 
-### WhichKey Group Labels
-**Decision:** Add descriptive group labels for leader key bindings
-**Reasoning:** NvChad's default WhichKey setup shows generic "+N keymaps" labels which don't convey what functionality is grouped under each prefix. Adding explicit group names (e.g., "Find/Files" for `<leader>f`, "Git" for `<leader>g`) improves discoverability and makes it easier to remember what keybindings are available.
-**Location:** `lua/mappings.lua:24-32`
+### Motion Plugins: flash.nvim, harpoon, nvim-surround
+**Decision:** Use multiple motion enhancement plugins
+**Reasoning:**
+- **flash.nvim**: Enhanced search and navigation with visual feedback
+- **harpoon**: Quick navigation to frequently-used files
+- **nvim-surround**: Efficient manipulation of surrounding characters (quotes, brackets, etc.)
+**Location:** `lua/community.lua:38-40`
+**Date:** Original configuration
+
+### Window Management: windows.nvim
+**Decision:** Use windows.nvim for automatic window resizing
+**Reasoning:** Provides smooth animations and automatic window sizing. Maximizes screen real estate without manual resizing. Integrates well with tmux workflow.
+**Location:** `lua/community.lua:44`
+**Date:** Original configuration
+**Note:** This feature was also added in NvChad experiment, showing its value
+
+### tmux Integration: vim-tmux-navigator
+**Decision:** Use vim-tmux-navigator for seamless tmux/nvim navigation
+**Reasoning:** Unified `<C-h/j/k/l>` navigation between tmux panes and Neovim splits eliminates context switching overhead. Essential for terminal-based workflow.
+**Location:** `lua/community.lua:46`
+**Date:** Original configuration
+**Note:** Requires tmux configuration in `~/.config/tmux/tmux.conf`
+
+## File Management
+
+### File Explorer: oil.nvim
+**Decision:** Use oil.nvim instead of traditional file tree (nvim-tree, neo-tree)
+**Reasoning:** Edit filesystem like a buffer - more intuitive for vim users. Allows using normal vim commands (dd, p, etc.) for file operations.
+**Location:** `lua/community.lua:14`
+**Date:** Original configuration
+**Alternative:** nvim-tree, neo-tree (traditional sidebar explorers)
+
+## Git Integration
+
+### Git UI: neogit + diffview.nvim
+**Decision:** Use neogit for git operations and diffview for diffs/merges
+**Reasoning:**
+- **neogit**: Magit-like interface - powerful keyboard-driven Git workflow
+- **diffview**: Excellent diff and merge tool with multiple view modes
+**Location:** `lua/community.lua:31-32`
+**Date:** Original configuration
+
+## Testing
+
+### Testing Framework: neotest + nvim-coverage
+**Decision:** Integrate testing and coverage directly in editor
+**Reasoning:** Run tests and view coverage without leaving editor. Visual feedback on test status and code coverage.
+**Location:** `lua/community.lua:48-49`
+**Date:** Original configuration
+
+## Custom Dashboard
+
+### Dashboard: Custom KP CREW ASCII Art
+**Decision:** Customize snacks.nvim dashboard with personal branding
+**Reasoning:** Personal touch, makes the editor feel more "yours". KP CREW branding reflects team/personal identity.
+**Location:** `lua/plugins/user.lua:20-43`
+**Date:** Original configuration
+
+## Database Management
+
+### Database: full-dadbod pack
+**Decision:** Include vim-dadbod for database management
+**Reasoning:** Interact with databases directly from editor. Useful for backend development and data exploration.
+**Location:** `lua/community.lua:78`
+**Date:** Original configuration
+
+---
+
+## Documentation Strategy
+
+### Two-Level Documentation System
+**Decision:** Maintain comprehensive documentation (CLAUDE.md, CHANGELOG.md, DECISIONS.md, PLUGINS.md)
+**Reasoning:** Provides clear context for AI assistants and future reference. Documents rationale behind decisions and tracks configuration evolution.
 **Date:** 2025-10-30
-**Groups Defined:**
-- `<leader>c`: Code/Comments
-- `<leader>d`: Diagnostics
-- `<leader>f`: Find/Files
-- `<leader>g`: Git
-- `<leader>m`: Marks
-- `<leader>p`: Pick
-- `<leader>r`: Rename/Refactor
-- `<leader>t`: Terminal/Theme
-- `<leader>w`: WhichKey/Windows
-
-### vim-tmux-navigator Integration
-**Decision:** Use vim-tmux-navigator for seamless navigation between tmux panes and Neovim splits
-**Reasoning:** Provides unified Ctrl-hjkl navigation across both tmux and Neovim, eliminating cognitive overhead of different navigation paradigms. Requires careful configuration to avoid conflicts with NvChad's default mappings.
-**Location:** `lua/plugins/init.lua:16-20`, `lua/mappings.lua:10-22`
-**Date:** 2025-10-30
-**Implementation Details:**
-- Plugin loaded with `lazy = false` (no lazy-loading triggers to avoid conflicts)
-- NvChad's default Ctrl-hjkl mappings deleted first
-- Explicit keybindings added for TmuxNavigate commands
-- Works bidirectionally (nvim → tmux and tmux → nvim)
-**Related:** Root-level integration documented in `~/.config/CLAUDE.md` and `~/.config/DECISIONS.md`
-
-## Performance Optimizations
-
-### Disabled Default Plugins
-**Decision:** Disable many default Vim plugins (netrw, matchit, etc.)
-**Reasoning:** These plugins add startup time and are either unused or replaced by better alternatives in the plugin ecosystem.
-**Location:** `lua/configs/lazy.lua:16-44`
-**Date:** 2025-10-29
+**Inspired by:** Root-level dotfiles documentation system
 
 ---
 
@@ -91,7 +150,9 @@ This file documents the reasoning behind configuration choices in this NvChad se
 ### [Decision Title]
 **Decision:** What was decided
 **Reasoning:** Why this decision was made, alternatives considered, trade-offs
-**Location:** Where in the config this is implemented
+**Location:** File paths and configuration details
 **Date:** YYYY-MM-DD
+**Alternative:** What other options were considered
+**Trade-offs:** What was gained/lost with this choice
 **Related:** Links to issues, discussions, or other decisions
 ```

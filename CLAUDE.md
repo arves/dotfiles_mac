@@ -108,15 +108,15 @@ tmux
 
 ### Neovim (nvim/)
 
-NvChad v2.5-based configuration with extensive documentation. See `nvim/CLAUDE.md` for detailed information.
+AstroNvim v4-based configuration with extensive documentation. See `nvim/CLAUDE.md` for detailed information.
 
 **Key files:**
 - `nvim/init.lua` - Entry point
-- `nvim/lua/chadrc.lua` - NvChad theme/UI settings
-- `nvim/lua/options.lua` - Vim options
-- `nvim/lua/mappings.lua` - Keybindings
-- `nvim/lua/plugins/init.lua` - Plugin specifications
-- `nvim/lua/configs/` - Plugin configurations
+- `nvim/lua/community.lua` - AstroCommunity plugin imports
+- `nvim/lua/plugins/astrocore.lua` - Core settings (options, autocmds, mappings)
+- `nvim/lua/plugins/astrolsp.lua` - LSP configuration
+- `nvim/lua/plugins/astroui.lua` - UI customizations
+- `nvim/lua/plugins/user.lua` - Custom plugin overrides
 
 **Documentation files:**
 - `nvim/CLAUDE.md` - Architecture and development guide
@@ -126,14 +126,14 @@ NvChad v2.5-based configuration with extensive documentation. See `nvim/CLAUDE.m
 
 **Commands:**
 ```bash
-# Format Lua files
-cd ~/.config/nvim && stylua .
-
 # Install/update plugins (in Neovim)
 :Lazy sync
 
+# Update AstroNvim
+:AstroUpdate
+
 # Install LSP servers (in Neovim)
-:MasonInstall <server_name>
+:Mason
 ```
 
 ### tmux (tmux/tmux.conf)
@@ -359,12 +359,14 @@ bash ~/.config/scripts/init_local.sh
 ### vim-tmux-navigator not working
 
 - Ensure plugin loaded in both Neovim and tmux
+- For AstroNvim: Check `lua/community.lua` includes `{ import = "astrocommunity.terminal-integration.vim-tmux-navigator" }`
 - Restart both tmux and Neovim
 - Check `:checkhealth` in Neovim
 
 ## Notes
 
 - All configurations are version-controlled in this repository
-- Plugin directories (tmux/plugins, nvim lazyvim cache) are gitignored
+- Plugin directories (tmux/plugins, nvim lazy plugin cache) are gitignored
 - The nvim/ directory has its own comprehensive documentation system
+- Neovim uses **AstroNvim v4** (switched back from NvChad on 2025-10-30)
 - Configurations are optimized for macOS (some features like AeroSpace are macOS-only)

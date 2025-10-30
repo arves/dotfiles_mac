@@ -4,87 +4,197 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a personal Neovim configuration based on NvChad v2.5. The main NvChad repository (NvChad/NvChad) is used as a plugin, and this repo imports its modules while providing user-specific customizations.
+This is a personal Neovim configuration based on **AstroNvim v4**. AstroNvim is a feature-rich Neovim distribution that provides a robust foundation for customization while maintaining excellent defaults.
 
 ## Architecture
 
-### Plugin Management
-- Uses lazy.nvim as the plugin manager (bootstrapped in init.lua:5-12)
-- NvChad is loaded as a lazy plugin from the "v2.5" branch (init.lua:18-23)
-- User plugins are defined in `lua/plugins/init.lua`
-- Lazy configuration is in `lua/configs/lazy.lua`
-
 ### Configuration Structure
-The configuration follows NvChad's modular pattern where each file imports base NvChad modules and extends them:
 
-- `init.lua` - Entry point that bootstraps lazy.nvim, loads plugins, themes, and core modules
-- `lua/chadrc.lua` - NvChad-specific configuration (theme, UI settings). Must match structure from NvChad/ui nvconfig.lua
-- `lua/options.lua` - Vim options (imports `nvchad.options` then adds custom options)
-- `lua/mappings.lua` - Keymappings (imports `nvchad.mappings` then adds custom maps)
-- `lua/autocmds.lua` - Auto commands (imports `nvchad.autocmds` then adds custom ones)
-- `lua/plugins/init.lua` - Plugin specifications for lazy.nvim
-- `lua/configs/` - Plugin-specific configurations
+AstroNvim uses a modular configuration approach:
 
-### Key Configuration Details
-- Leader key is set to space (init.lua:2)
-- Base46 cache is stored in Neovim data directory (init.lua:1)
-- Theme is "onedark" (lua/chadrc.lua:9)
-- LSP servers enabled: html, cssls (lua/configs/lspconfig.lua:3)
-- Formatters: stylua for Lua (lua/configs/conform.lua:3)
+- `init.lua` - Entry point that bootstraps lazy.nvim and loads AstroNvim
+- `lua/community.lua` - AstroCommunity plugin imports
+- `lua/plugins/` - Plugin specifications and overrides
+  - `astrocore.lua` - Core AstroNvim settings (options, autocmds, mappings, etc.)
+  - `astrolsp.lua` - LSP configuration and settings
+  - `astroui.lua` - UI customizations (icons, status line, highlights)
+  - `mappings.lua` - Custom keybindings
+  - `mason.lua` - Mason tool installer configuration
+  - `none-ls.lua` - None-ls (null-ls) formatter/linter configuration
+  - `user.lua` - User-specific plugin overrides and custom dashboard
+  - `cmp.lua` - Completion engine configuration
+  - `treesitter.lua` - Treesitter configuration
+  - `init.lua` - Additional custom plugins
 
-### NvChad Plugin Locations (Important!)
+### Plugin Management
 
-NvChad is loaded as a lazy.nvim plugin, so its source code lives in the Neovim data directory, **not in this config directory**. When troubleshooting or understanding NvChad's default behavior:
+- Uses lazy.nvim as the plugin manager (managed by AstroNvim)
+- Plugins are defined as LazySpec tables in `lua/plugins/`
+- AstroCommunity provides pre-configured plugin packs and integrations
 
-**Key NvChad Files:**
-- Default mappings: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/mappings.lua`
-- Plugin definitions: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/plugins/init.lua`
-- Default options: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/options.lua`
-- Default autocmds: `~/.local/share/nvim/lazy/NvChad/lua/nvchad/autocmds.lua`
+## AstroCommunity Plugins
 
-**Other Plugin Locations:**
-- WhichKey plugin: `~/.local/share/nvim/lazy/which-key.nvim/`
-- Base46 (theming): `~/.local/share/nvim/lazy/base46/`
-- NvChad UI: `~/.local/share/nvim/lazy/ui/`
+Plugins imported from AstroCommunity (see `lua/community.lua`):
 
-**Why this matters:**
-- When you see `require "nvchad.mappings"` in your config, it's loading from `~/.local/share/nvim/lazy/NvChad/`
-- To understand what default keybindings exist, check the NvChad mappings file
-- To see how plugins like WhichKey are configured by default, check NvChad's plugin definitions
-- User configs in this directory **extend** the NvChad defaults by importing them first
+### Completion
+- blink-cmp-tmux - tmux completion source
+- blink-cmp-git - git completion source
+- cmp-nvim-lua - Neovim Lua API completion
+- cmp-spell - spell checker completion
+- copilot-lua-cmp - GitHub Copilot integration
 
-**Quick search commands:**
-```bash
-# Find NvChad default mappings
-cat ~/.local/share/nvim/lazy/NvChad/lua/nvchad/mappings.lua
+### File Explorer
+- oil-nvim - Edit filesystem like a buffer
 
-# Search for specific keybinding in NvChad defaults
-grep -r "leader.*f" ~/.local/share/nvim/lazy/NvChad/lua/nvchad/
+### Colorscheme
+- catppuccin - Catppuccin theme with transparent background
 
-# List all NvChad plugins
-ls ~/.local/share/nvim/lazy/
+### Diagnostics
+- trouble.nvim - Pretty list for diagnostics, references, quickfix
+
+### Editing Support
+- zen-mode.nvim - Distraction-free writing
+- copilotchat.nvim - AI pair programming chat
+
+### Git
+- diffview.nvim - Git diff and merge tool
+- neogit - Magit-like Git interface
+
+### Keybinding
+- nvcheatsheet.nvim - Searchable cheatsheet
+
+### LSP
+- inc-rename.nvim - Incremental LSP rename with preview
+
+### Motion
+- flash.nvim - Enhanced navigation
+- harpoon - Quick file navigation
+- nvim-surround - Add/change/delete surrounding pairs
+
+### Split and Window
+- **windows.nvim** - Automatic window resizing with animations
+
+### Terminal Integration
+- **vim-tmux-navigator** - Seamless tmux/nvim navigation
+
+### Testing
+- nvim-coverage - Code coverage display
+- neotest - Testing framework
+
+### Utility
+- noice.nvim - Enhanced UI for messages, cmdline, popupmenu
+
+### Language Packs
+- bash - Bash language support
+- full-dadbod - Database management
+- go - Go language support
+- lua - Lua language support
+- markdown - Markdown support
+- php - PHP language support
+- **python-ruff** - Python with ruff formatter/linter
+- rust - Rust language support
+- typescript-all-in-one - TypeScript/JavaScript support
+
+### Scrolling
+- neoscroll.nvim - Smooth scrolling
+
+## Key Configuration Files
+
+### astrocore.lua
+Core AstroNvim configuration including:
+- Vim options (line numbers, clipboard, etc.)
+- Autocommands (buffer management, etc.)
+- Custom mappings
+
+### astrolsp.lua
+LSP configuration including:
+- Server setup and capabilities
+- Formatting options
+- Custom keybindings for LSP features
+
+### community.lua
+All AstroCommunity plugin imports with custom configurations for:
+- Catppuccin transparent background
+- Noice.nvim custom routes and presets
+
+## Language Support
+
+Python support is provided through the `python-ruff` pack which includes:
+- **pyright** - LSP server for type checking and completions
+- **ruff** - Fast linter and formatter
+- **debugpy** - Python debugger
+
+Other languages with full support:
+- TypeScript/JavaScript
+- Rust
+- Go
+- Lua
+- Bash
+- PHP
+- Markdown
+
+## Key Features
+
+### Window Management
+- **windows.nvim** (from astrocommunity) provides:
+  - Automatic window resizing with animations
+  - Commands: `:WindowsMaximize`, `:WindowsMaximizeVertically`, `:WindowsMaximizeHorizontally`, `:WindowsEqualize`
+  - Keybindings typically under `<C-w>` prefix
+
+### tmux Integration
+- **vim-tmux-navigator** (from astrocommunity) provides:
+  - Seamless navigation between tmux panes and Neovim splits
+  - Uses `<C-h/j/k/l>` for unified navigation
+
+### Copilot Integration
+- GitHub Copilot for code suggestions
+- CopilotChat for AI pair programming
+
+## Development Workflow
+
+### Installing Language Servers / Tools
+Use Mason to install LSP servers, formatters, and linters:
+```vim
+:Mason
 ```
 
-## Code Style
-
-### Lua Formatting (stylua)
-Format Lua files with stylua using the settings in `.stylua.toml`:
-```bash
-stylua .
+### Updating Plugins
+```vim
+:Lazy sync
 ```
 
-Configuration:
-- 120 character line width
-- 2 space indentation
-- Unix line endings
-- No parentheses around function calls when possible
-- Auto-prefer double quotes
+### Updating AstroNvim
+```vim
+:AstroUpdate
+```
 
-### Adding New LSP Servers
-Edit `lua/configs/lspconfig.lua` and add servers to the servers table (line 3), then run `:MasonInstall <server_name>` in Neovim.
+### Checking Health
+```vim
+:checkhealth
+```
 
-### Adding New Plugins
-Add plugin specifications to `lua/plugins/init.lua` following lazy.nvim syntax. Create corresponding config files in `lua/configs/` if needed.
+## Documentation Files
+
+- **CLAUDE.md** (this file) - Architecture and development guide
+- **CHANGELOG.md** - Change history
+- **DECISIONS.md** - Configuration decision rationale
+- **PLUGINS.md** - Plugin registry with descriptions
+
+## File Locations
+
+AstroNvim plugins are installed in:
+- `~/.local/share/nvim/lazy/` - Plugin directory
 
 ## Testing Configuration
-To test changes, restart Neovim or use `:source %` on the modified file. For plugin changes, use `:Lazy sync` to install/update plugins.
+
+To test changes:
+1. Restart Neovim or use `:source %` on modified files
+2. For plugin changes, use `:Lazy sync`
+3. For LSP changes, use `:LspRestart`
+
+## Notes
+
+- Configuration follows AstroNvim patterns and conventions
+- Most plugins are imported from AstroCommunity for easier maintenance
+- Custom configurations are minimal and only override defaults when needed
+- Python support is already configured via the python-ruff pack

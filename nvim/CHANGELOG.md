@@ -1,41 +1,83 @@
 # Changelog
 
-All notable changes to this Neovim configuration will be documented in this file.
+All notable changes to this Neovim (AstroNvim) configuration will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
 ### Added
-- Context tracking system with CHANGELOG, DECISIONS, PLUGINS, and .context/ directory
+- Context tracking system with CHANGELOG, DECISIONS, PLUGINS, and CLAUDE.md
 - CLAUDE.md for AI assistant guidance
-- vim-tmux-navigator plugin for seamless navigation between tmux panes and Neovim splits
-- WhichKey group labels for leader key bindings (descriptive categories instead of "+N keymaps")
-- **windows.nvim** plugin for automatic window resizing with smooth animations
-  - Automatically expands width of current window
-  - Maximizes and restores splits with animations
-  - Keybindings: `<C-w>z` (maximize), `<C-w>_` (maximize vertically), `<C-w>|` (maximize horizontally), `<C-w>=` (equalize), `<C-w>a` (toggle autowidth)
-  - Configuration: `lua/configs/windows.lua` based on AstroNvim community implementation
+- Documentation structure following dotfiles repository pattern
 
-### Fixed
-- **vim-tmux-navigator keybindings**: Fixed conflicting lazy-loading configuration that prevented Ctrl-hjkl navigation from working between Neovim and tmux
-  - Removed conflicting `cmd` and `keys` specifications from plugin spec (was conflicting with `lazy = false`)
-  - Added explicit keybinding mappings in `mappings.lua` for TmuxNavigate commands
-  - Navigation now works seamlessly in both directions (nvim → tmux and tmux → nvim)
+## [2025-10-30]
 
 ### Changed
-- Switched to NvChad v2.5 based configuration
-- WhichKey configuration: Added descriptive group names for <leader>c, d, f, g, m, p, r, t, w
+- **Switched back to AstroNvim** from NvChad
+- Restored AstroNvim v4 configuration
+- Preserved documentation structure created during NvChad experiment
 
-### Improved
-- CLAUDE.md: Added section documenting NvChad plugin locations in ~/.local/share/nvim/lazy/ for faster troubleshooting
+### Context
+The configuration was temporarily switched to NvChad v2.5 but has been reverted back to AstroNvim while maintaining the improved documentation structure that was developed.
 
-### Configuration Details
-- Theme: onedark
-- LSP Servers: html, cssls
-- Formatters: stylua (Lua)
-- Custom keymaps: `;` for command mode, `jk` for escape in insert mode
-- WhichKey groups: Code/Comments, Diagnostics, Find/Files, Git, Marks, Pick, Rename/Refactor, Terminal/Theme, WhichKey/Windows
+## [2025-10-29] - AstroNvim Base Configuration
+
+### Configuration Overview
+- **Distribution**: AstroNvim v4
+- **Colorscheme**: Catppuccin (transparent background)
+- **Completion**: GitHub Copilot integration
+- **Plugin Manager**: lazy.nvim (managed by AstroNvim)
+
+### AstroCommunity Plugins
+Imported from astrocommunity for enhanced functionality:
+
+**Completion:**
+- blink-cmp-tmux, blink-cmp-git, cmp-nvim-lua, cmp-spell
+- copilot-lua-cmp
+
+**File Management:**
+- oil.nvim
+
+**Diagnostics:**
+- trouble.nvim
+
+**Editing:**
+- zen-mode.nvim, copilotchat.nvim
+
+**Git:**
+- diffview.nvim, neogit
+
+**LSP:**
+- inc-rename.nvim
+
+**Motion:**
+- flash.nvim, harpoon, nvim-surround
+
+**Window Management:**
+- windows.nvim (automatic resizing with animations)
+
+**Terminal Integration:**
+- vim-tmux-navigator (seamless tmux/nvim navigation)
+
+**Testing:**
+- nvim-coverage, neotest
+
+**Utility:**
+- noice.nvim, nvcheatsheet.nvim
+
+**Language Packs:**
+- python-ruff (Python with pyright + ruff)
+- typescript-all-in-one
+- rust, go, lua, bash, php, markdown, full-dadbod
+
+**Scrolling:**
+- neoscroll.nvim
+
+### Custom Configuration
+- Custom dashboard with KP CREW logo
+- Transparent background for catppuccin
+- Noice.nvim custom routes to silence copilot messages
 
 ---
 

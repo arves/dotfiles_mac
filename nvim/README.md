@@ -1,68 +1,34 @@
-**This repo is supposed to be used as config by NvChad users!**
+# AstroNvim Template
 
-- The main nvchad repo (NvChad/NvChad) is used as a plugin by this repo.
-- So you just import its modules , like `require "nvchad.options" , require "nvchad.mappings"`
-- So you can delete the .git from this repo ( when you clone it locally ) or fork it :)
+**NOTE:** This is for AstroNvim v5+
 
-# Context Management System
+A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
-This configuration uses a structured context system to track changes, decisions, and workflows:
+## 🛠️ Installation
 
-## Documentation Files
+#### Make a backup of your current nvim and shared folder
 
-- **CLAUDE.md** - Guidance for AI assistants working with this config
-- **CHANGELOG.md** - Track what changed and when
-- **DECISIONS.md** - Document why configuration choices were made
-- **PLUGINS.md** - Track all plugins, their purposes, and configurations
-- **.context/keymaps.md** - Document all custom keybindings
-- **.context/workflows.md** - Document common workflows and usage patterns
+```shell
+mv ~/.config/nvim ~/.config/nvim.bak
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
+mv ~/.local/state/nvim ~/.local/state/nvim.bak
+mv ~/.cache/nvim ~/.cache/nvim.bak
+```
 
-## When to Update Context Files
+#### Create a new user repository from this template
 
-### After Configuration Changes
-- Update **CHANGELOG.md** with what changed
-- Update **DECISIONS.md** if the change involved a significant choice
-- Update **PLUGINS.md** when adding/removing plugins
-- Update **.context/keymaps.md** when adding/changing keybindings
-- Update **.context/workflows.md** when establishing new workflows
+Press the "Use this template" button above to create a new repository to store your user configuration.
 
-### Before Committing
-1. Ensure relevant context files are updated
-2. Format Lua files: `stylua .`
-3. Test configuration in Neovim
-4. Commit with descriptive message
+You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
 
-## Benefits
+#### Clone the repository
 
-- Remember why decisions were made months later
-- Quickly onboard future you (or collaborators)
-- Track configuration evolution over time
-- Help AI assistants understand your setup
-- Document custom keybindings so you don't forget them
+```shell
+git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+```
 
-# Quick Start
+#### Start Neovim
 
-## Basic Usage
-- **Leader key:** `<Space>`
-- **File explorer:** `<leader>e`
-- **Find files:** `<leader>ff`
-- **Search in files:** `<leader>fw`
-- **Plugin manager:** `:Lazy`
-
-See `.context/keymaps.md` for complete keymap documentation.
-
-# Configuration
-
-## Structure
-- `init.lua` - Entry point
-- `lua/chadrc.lua` - NvChad theme and UI settings
-- `lua/options.lua` - Vim options
-- `lua/mappings.lua` - Custom keymaps
-- `lua/plugins/init.lua` - Plugin specifications
-- `lua/configs/` - Plugin configurations
-
-See `CLAUDE.md` for detailed architecture information.
-
-# Credits
-
-1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+```shell
+nvim
+```

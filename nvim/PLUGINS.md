@@ -1,111 +1,161 @@
 # Plugin Documentation
 
-This file tracks all plugins, their purposes, and configuration notes.
+This file tracks all plugins, their purposes, and configuration notes for this AstroNvim configuration.
 
-## Core Plugins (NvChad Managed)
+## Core Framework
 
-### NvChad Base
-- **Plugin:** NvChad/NvChad
-- **Branch:** v2.5
-- **Purpose:** Base configuration framework providing UI, defaults, and plugin ecosystem
-- **Config:** `lua/chadrc.lua`
+### AstroNvim
+- **Repository:** AstroNvim/AstroNvim
+- **Version:** v4
+- **Purpose:** Base Neovim distribution providing structured configuration framework
+- **Config:** Entry point in `init.lua`, core settings in `lua/plugins/astrocore.lua`
 
-### UI Components
-- **base46** (v3.0): Theme engine for NvChad
-- **ui** (v3.0): UI components (statusline, tabufline, etc.)
-- **menu**: Context menu system
-- **minty**: Color picker utilities
-- **volt**: UI component library
+### lazy.nvim
+- **Repository:** folke/lazy.nvim
+- **Purpose:** Plugin manager (managed by AstroNvim)
+- **Features:** Lazy-loading, fast startup, excellent UI
+
+## AstroCommunity Plugins
+
+Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for imports.
+
+### Completion & AI
+- **blink-cmp-tmux** - tmux completion source
+- **blink-cmp-git** - git completion source
+- **cmp-nvim-lua** - Neovim Lua API completion
+- **cmp-spell** - Spell checker completion
+- **copilot-lua-cmp** - GitHub Copilot integration for code suggestions
+- **copilotchat.nvim** - AI pair programming chat interface
 
 ### File Management
-- **nvim-tree.lua**: File explorer sidebar
-- **telescope.nvim**: Fuzzy finder for files, buffers, grep, and more
-- **nvim-web-devicons**: File type icons
+- **oil.nvim** - Edit filesystem like a buffer
+  - Edit files with vim commands (dd, p, yy, etc.)
+  - More intuitive than traditional file trees
 
-### Completion and Snippets
-- **nvim-cmp**: Completion engine
-- **cmp-nvim-lsp**: LSP completion source
-- **cmp-buffer**: Buffer text completion
-- **cmp-async-path**: File path completion
-- **cmp-nvim-lua**: Neovim Lua API completion
-- **LuaSnip**: Snippet engine
-- **cmp_luasnip**: LuaSnip completion source
-- **friendly-snippets**: Collection of common snippets
+### Colorscheme
+- **catppuccin/nvim** - Catppuccin Mocha theme
+  - Config: Transparent background enabled
+  - Location: `lua/community.lua:17-24`
 
-### LSP and Language Support
-- **nvim-lspconfig**: LSP configuration
-  - **Config:** `lua/configs/lspconfig.lua`
-  - **Servers:** html, cssls
-- **mason.nvim**: LSP/formatter/linter installer
-- **nvim-treesitter**: Syntax highlighting and code understanding
+### Diagnostics & Trouble
+- **trouble.nvim** - Pretty list for diagnostics, references, telescope results, quickfix, location lists
 
-### Formatting
-- **conform.nvim**: Formatter runner
-  - **Config:** `lua/configs/conform.lua`
-  - **Formatters:** stylua (Lua)
+### Editing Support
+- **zen-mode.nvim** - Distraction-free writing mode
+- **nvim-surround** - Add/change/delete surrounding delimiter pairs (quotes, brackets, tags)
 
-### Editor Enhancement
-- **nvim-autopairs**: Auto-close brackets, quotes, etc.
-- **indent-blankline.nvim**: Indentation guides
-- **gitsigns.nvim**: Git integration (signs, blame, etc.)
-- **which-key.nvim**: Keybinding hints
+### Git Integration
+- **diffview.nvim** - Git diff and merge tool with multiple view modes
+- **neogit** - Magit-like Git interface for keyboard-driven workflow
 
-### Utilities
-- **plenary.nvim**: Lua utility library (dependency for many plugins)
-- **lazy.nvim**: Plugin manager
+### Keybinding & Help
+- **nvcheatsheet.nvim** - Searchable keybinding cheatsheet
 
-## User-Added Plugins
+### LSP Enhancement
+- **inc-rename.nvim** - Incremental LSP rename with live preview
 
-### vim-tmux-navigator
-- **Plugin:** christoomey/vim-tmux-navigator
-- **Purpose:** Seamless navigation between tmux panes and Neovim splits using the same `<C-h/j/k/l>` keybindings
-- **Config:** No additional config needed (loaded immediately with `lazy = false`)
-- **Keymaps:** Uses default `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>` for navigation
-- **Added:** 2025-10-29
-- **Notes:** Requires tmux configuration in `~/.tmux.conf` for full functionality. See plugin README for tmux setup instructions.
+### Motion & Navigation
+- **flash.nvim** - Enhanced search and navigation with visual feedback
+- **harpoon** - Quick navigation to frequently-used files (mark and jump)
+- **nvim-surround** - Manipulate surrounding characters efficiently
 
-### windows.nvim
-- **Plugin:** anuvyklack/windows.nvim
-- **Purpose:** Automatic window resizing with smooth animations. Automatically expands width of current window, maximizes and restores splits with animations
-- **Dependencies:** anuvyklack/middleclass, anuvyklack/animation.nvim
-- **Config:** `lua/configs/windows.lua`
-- **Keymaps:**
-  - `<C-w>z` - Maximize window (toggle)
-  - `<C-w>_` - Maximize vertically
-  - `<C-w>|` - Maximize horizontally
-  - `<C-w>=` - Equalize all windows
-  - `<C-w>a` - Toggle autowidth
-- **Commands:**
-  - `:WindowsMaximize` - Maximize current window
-  - `:WindowsMaximizeVertically` - Maximize window height
-  - `:WindowsMaximizeHorizontally` - Maximize window width
-  - `:WindowsEqualize` - Equalize all windows
-  - `:WindowsEnableAutowidth` - Enable automatic width adjustment
-  - `:WindowsDisableAutowidth` - Disable automatic width adjustment
-  - `:WindowsToggleAutowidth` - Toggle automatic width adjustment
-- **Added:** 2025-10-30
-- **Notes:** Config based on AstroNvim community implementation. Sets `winwidth=10`, `winminwidth=10`, `equalalways=false` for optimal behavior. Ignores NvimTree and quickfix windows.
+### Split & Window Management
+- **windows.nvim** - Automatic window resizing with smooth animations
+  - **Commands:**
+    - `:WindowsMaximize` - Maximize current window
+    - `:WindowsMaximizeVertically` - Maximize height
+    - `:WindowsMaximizeHorizontally` - Maximize width
+    - `:WindowsEqualize` - Equalize all windows
+    - `:WindowsToggleAutowidth` - Toggle automatic width adjustment
+  - **Keybindings:** Typically under `<C-w>` prefix
+  - **Added:** Via astrocommunity
+  - **Location:** `lua/community.lua:44`
 
-### Template
-```markdown
-### Plugin Name
-- **Plugin:** author/repo
-- **Purpose:** What this plugin does and why you added it
-- **Config:** Location of configuration file if applicable
-- **Keymaps:** Custom keymaps for this plugin
-- **Added:** YYYY-MM-DD
-- **Notes:** Any special configuration notes or gotchas
-```
+### Terminal Integration
+- **vim-tmux-navigator** - Seamless navigation between tmux panes and Neovim splits
+  - **Keybindings:** `<C-h/j/k/l>` for unified navigation
+  - **Requirements:** Requires tmux configuration in `~/.config/tmux/tmux.conf`
+  - **Added:** Via astrocommunity
+  - **Location:** `lua/community.lua:46`
+
+### Testing
+- **nvim-coverage** - Display code coverage in editor
+- **neotest** - Testing framework with inline test results
+
+### UI Enhancement
+- **noice.nvim** - Enhanced UI for messages, cmdline, and popupmenu
+  - **Custom Config:** Routes to silence CopilotChat messages
+  - **Location:** `lua/community.lua:51-76`
+
+### Scrolling
+- **neoscroll.nvim** - Smooth scrolling animations
+
+## Language Packs
+
+AstroCommunity language packs provide pre-configured LSP, formatters, linters, and debuggers.
+
+### Python (python-ruff)
+- **LSP:** pyright - Type checking and intelligent completions
+- **Formatter:** ruff_format - Fast Rust-based formatter
+- **Linter:** ruff - Replaces flake8, pylint, isort, and more
+- **Debugger:** debugpy
+- **Location:** `lua/community.lua:83`
+- **Why Ruff:** 10-100x faster than black, consolidates multiple tools
+
+### TypeScript/JavaScript (typescript-all-in-one)
+- **LSP:** tsserver/vtsls
+- **Formatters:** prettier, eslint
+- **Linters:** eslint
+
+### Rust (pack.rust)
+- **LSP:** rust-analyzer
+- **Formatter:** rustfmt
+- **Tools:** cargo integration
+
+### Go (pack.go)
+- **LSP:** gopls
+- **Formatters:** gofmt, goimports
+- **Tools:** delve debugger
+
+### Lua (pack.lua)
+- **LSP:** lua-ls (lua_ls)
+- **Formatter:** stylua
+
+### Bash (pack.bash)
+- **LSP:** bash-language-server
+- **Formatter:** shfmt
+- **Linter:** shellcheck
+
+### PHP (pack.php)
+- **LSP:** intelephense
+- **Formatters:** Various PHP formatters
+
+### Markdown (pack.markdown)
+- **LSP:** marksman
+- **Formatters:** prettier, markdownlint
+
+### Database (full-dadbod)
+- **Plugin:** vim-dadbod - Database interface
+- **UI:** vim-dadbod-ui - Visual database explorer
+- **Completion:** vim-dadbod-completion
+
+## Custom Plugins
+
+### Dashboard Customization
+- **Plugin:** folke/snacks.nvim (customized)
+- **Purpose:** Custom dashboard with KP CREW ASCII art
+- **Location:** `lua/plugins/user.lua:20-43`
+- **Features:** Personalized welcome screen
 
 ## Plugin Addition Checklist
 
 When adding a new plugin:
-1. Add plugin spec to `lua/plugins/init.lua`
-2. Create config file in `lua/configs/` if needed
+1. Add plugin import to `lua/community.lua` (if from astrocommunity)
+2. OR add plugin spec to `lua/plugins/init.lua` or `lua/plugins/user.lua`
 3. Document it in this file (PLUGINS.md)
-4. Add keymaps to `.context/keymaps.md` if applicable
-5. Document decision in DECISIONS.md if significant
-6. Update CHANGELOG.md
+4. Document decision in DECISIONS.md if significant
+5. Update CHANGELOG.md
+6. Run `:Lazy sync` to install
 
 ## Plugin Removal Notes
 
@@ -118,3 +168,10 @@ _(Document removed plugins and why)_
 - **Reason:** Why it was removed
 - **Replaced by:** Alternative plugin if applicable
 ```
+
+## Notes
+
+- Most plugins are managed through AstroCommunity for easier maintenance
+- Custom plugins are minimal and only used when astrocommunity doesn't provide the functionality
+- All plugins are lazy-loaded where possible for fast startup
+- Language support is provided through comprehensive astrocommunity packs
