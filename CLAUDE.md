@@ -293,6 +293,12 @@ git commit -m "Description of changes"
 git push
 ```
 
+**Commit Message Guidelines:**
+- DO NOT include "🤖 Generated with [Claude Code]" footer
+- DO NOT include "Co-Authored-By: Claude" footer
+- Write clean, concise commit messages with descriptive bullet points
+- Use conventional commit style when appropriate
+
 **Current state:**
 - Branch: main
 - Untracked: `tmux/plugins/` (plugins managed by TPM, gitignored)
