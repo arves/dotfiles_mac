@@ -10,7 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Context tracking system with CHANGELOG, DECISIONS, PLUGINS, and CLAUDE.md
 - CLAUDE.md for AI assistant guidance
 - Documentation structure following dotfiles repository pattern
-- Increased scroll speed: Set `scroll = 20` for faster `<C-u>` and `<C-d>` scrolling
+
+### Changed
+- Increased scroll speed: Configured neoscroll.nvim to scroll 0.75 (75%) of window height instead of default 0.5 (50%) for `<C-u>` and `<C-d>` commands
+- Updated neoscroll.nvim configuration to use modern API (`vim.keymap.set()` with direct `neoscroll.scroll()` calls) instead of deprecated `set_mappings()` function
 
 ### Removed
 - nvcheatsheet.nvim - Plugin no longer available in AstroCommunity (was causing clone errors)
@@ -18,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 - lspconfig deprecation warnings resolved after running `:AstroUpdate` (2025-10-30)
 - AstroCommunity packages updated to use new Neovim 0.11 vim.lsp.config API
+- neoscroll.nvim deprecation warnings resolved by migrating to modern API
 
 ## [2025-10-30]
 

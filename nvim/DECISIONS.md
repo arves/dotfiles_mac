@@ -136,13 +136,18 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ## Editor Behavior
 
-### Scroll Speed: 20 lines per <C-u>/<C-d>
-**Decision:** Set `scroll = 20` for `<C-u>` and `<C-d>` commands
-**Reasoning:** Default behavior scrolls half the window height, which can be slow for large windows. Setting a fixed scroll distance of 20 lines provides consistent, faster scrolling regardless of window size.
-**Location:** `lua/plugins/astrocore.lua:41`
+### Scroll Speed: 75% of window for <C-u>/<C-d>
+**Decision:** Configure neoscroll.nvim to scroll 0.75 (75% of window height) instead of default 0.5 (50%)
+**Reasoning:** Default neoscroll behavior scrolls half the window height, which can feel slow. Increasing to 75% provides faster navigation while maintaining smooth animations. Since neoscroll.nvim plugin handles scrolling, we configure it directly rather than using vim's scroll option.
+**Location:** `lua/community.lua:87-134` (neoscroll.nvim custom config)
 **Date:** 2025-10-30
-**Alternative:** Could keep default (0 = half window), but fixed distance feels more predictable and faster
-**Adjustment:** Can increase/decrease the number based on preference (try 15-30 range)
+**Alternative:** Could keep default 0.5 (50%) or go up to 1.0 (100% = full window)
+**Implementation:** Using modern neoscroll API with `vim.keymap.set()` and direct `neoscroll.scroll()` calls instead of deprecated `set_mappings()` function
+**Settings:**
+- Scroll amount: 0.75 (75% of window)
+- Animation duration: 250ms
+- Easing: linear
+- Move cursor: true
 
 ---
 

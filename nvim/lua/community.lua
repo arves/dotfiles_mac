@@ -85,4 +85,51 @@ return {
   { import = "astrocommunity.pack.typescript-all-in-one" },
 
   { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  {
+    "karb94/neoscroll.nvim",
+    opts = {
+      mappings = {},
+      hide_cursor = true,
+      stop_eof = true,
+      respect_scrolloff = false,
+      cursor_scrolls_alone = true,
+      easing = "linear",
+      performance_mode = false,
+    },
+    config = function(_, opts)
+      require("neoscroll").setup(opts)
+
+      -- Increase scroll distance for <C-u> and <C-d> (0.75 = 75% of screen height)
+      -- Using the new neoscroll API with vim.keymap.set
+      local neoscroll = require("neoscroll")
+
+      vim.keymap.set({ "n", "v", "x" }, "<C-u>", function()
+        neoscroll.scroll(-0.75, { move_cursor = true, duration = 250 })
+      end)
+
+      vim.keymap.set({ "n", "v", "x" }, "<C-d>", function()
+        neoscroll.scroll(0.75, { move_cursor = true, duration = 250 })
+      end)
+
+      vim.keymap.set({ "n", "v", "x" }, "<C-b>", function()
+        neoscroll.scroll(-vim.api.nvim_win_get_height(0), { move_cursor = true, duration = 250 })
+      end)
+
+      vim.keymap.set({ "n", "v", "x" }, "<C-f>", function()
+        neoscroll.scroll(vim.api.nvim_win_get_height(0), { move_cursor = true, duration = 250 })
+      end)
+
+      vim.keymap.set({ "n", "v", "x" }, "zt", function()
+        neoscroll.zt({ duration = 250 })
+      end)
+
+      vim.keymap.set({ "n", "v", "x" }, "zz", function()
+        neoscroll.zz({ duration = 250 })
+      end)
+
+      vim.keymap.set({ "n", "v", "x" }, "zb", function()
+        neoscroll.zb({ duration = 250 })
+      end)
+    end,
+  },
 }
