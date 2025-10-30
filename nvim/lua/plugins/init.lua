@@ -19,6 +19,19 @@ return {
     lazy = false,
   },
 
+  -- Window management with automatic resizing and animations
+  {
+    "anuvyklack/windows.nvim",
+    dependencies = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim",
+    },
+    event = "VeryLazy",
+    config = function()
+      require "configs.windows"
+    end,
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 

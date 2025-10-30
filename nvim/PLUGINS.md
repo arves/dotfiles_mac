@@ -64,6 +64,28 @@ This file tracks all plugins, their purposes, and configuration notes.
 - **Added:** 2025-10-29
 - **Notes:** Requires tmux configuration in `~/.tmux.conf` for full functionality. See plugin README for tmux setup instructions.
 
+### windows.nvim
+- **Plugin:** anuvyklack/windows.nvim
+- **Purpose:** Automatic window resizing with smooth animations. Automatically expands width of current window, maximizes and restores splits with animations
+- **Dependencies:** anuvyklack/middleclass, anuvyklack/animation.nvim
+- **Config:** `lua/configs/windows.lua`
+- **Keymaps:**
+  - `<C-w>z` - Maximize window (toggle)
+  - `<C-w>_` - Maximize vertically
+  - `<C-w>|` - Maximize horizontally
+  - `<C-w>=` - Equalize all windows
+  - `<C-w>a` - Toggle autowidth
+- **Commands:**
+  - `:WindowsMaximize` - Maximize current window
+  - `:WindowsMaximizeVertically` - Maximize window height
+  - `:WindowsMaximizeHorizontally` - Maximize window width
+  - `:WindowsEqualize` - Equalize all windows
+  - `:WindowsEnableAutowidth` - Enable automatic width adjustment
+  - `:WindowsDisableAutowidth` - Disable automatic width adjustment
+  - `:WindowsToggleAutowidth` - Toggle automatic width adjustment
+- **Added:** 2025-10-30
+- **Notes:** Config based on AstroNvim community implementation. Sets `winwidth=10`, `winminwidth=10`, `equalalways=false` for optimal behavior. Ignores NvimTree and quickfix windows.
+
 ### Template
 ```markdown
 ### Plugin Name

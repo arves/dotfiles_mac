@@ -11,6 +11,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - CLAUDE.md for AI assistant guidance
 - vim-tmux-navigator plugin for seamless navigation between tmux panes and Neovim splits
 - WhichKey group labels for leader key bindings (descriptive categories instead of "+N keymaps")
+- **windows.nvim** plugin for automatic window resizing with smooth animations
+  - Automatically expands width of current window
+  - Maximizes and restores splits with animations
+  - Keybindings: `<C-w>z` (maximize), `<C-w>_` (maximize vertically), `<C-w>|` (maximize horizontally), `<C-w>=` (equalize), `<C-w>a` (toggle autowidth)
+  - Configuration: `lua/configs/windows.lua` based on AstroNvim community implementation
 
 ### Fixed
 - **vim-tmux-navigator keybindings**: Fixed conflicting lazy-loading configuration that prevented Ctrl-hjkl navigation from working between Neovim and tmux

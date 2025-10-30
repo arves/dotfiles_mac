@@ -21,6 +21,14 @@ map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Navigate down (tmux-awa
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Navigate up (tmux-aware)" })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Navigate right (tmux-aware)" })
 
+-- windows.nvim keybindings
+-- Window management with automatic resizing and animations
+map("n", "<C-w>z", "<cmd>WindowsMaximize<cr>", { desc = "Maximize window" })
+map("n", "<C-w>_", "<cmd>WindowsMaximizeVertically<cr>", { desc = "Maximize vertically" })
+map("n", "<C-w>|", "<cmd>WindowsMaximizeHorizontally<cr>", { desc = "Maximize horizontally" })
+map("n", "<C-w>=", "<cmd>WindowsEqualize<cr>", { desc = "Equalize windows" })
+map("n", "<C-w>a", "<cmd>WindowsToggleAutowidth<cr>", { desc = "Toggle autowidth" })
+
 -- Configure WhichKey group labels
 local wk = require "which-key"
 wk.add {
