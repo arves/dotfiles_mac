@@ -134,6 +134,17 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ---
 
+## Known Issues
+
+### lspconfig Deprecation Warning (Neovim 0.11+)
+**Issue:** Warning about `require('lspconfig')` being deprecated in favor of `vim.lsp.config`
+**Impact:** None - this is just a deprecation warning, LSP functionality works fine
+**Reasoning:** AstroCommunity language packs haven't been updated to the new Neovim 0.11 API yet
+**Resolution:** Wait for AstroCommunity updates, or the warning will be removed in future lspconfig versions
+**Date Noted:** 2025-10-30
+
+---
+
 ## Removed Plugins
 
 ### nvcheatsheet.nvim

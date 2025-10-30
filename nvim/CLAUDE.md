@@ -192,6 +192,16 @@ To test changes:
 2. For plugin changes, use `:Lazy sync`
 3. For LSP changes, use `:LspRestart`
 
+## Known Issues
+
+### lspconfig Deprecation Warning (Neovim 0.11+)
+If you see warnings about `require('lspconfig')` being deprecated:
+```
+The `require('lspconfig')` "framework" is deprecated, use vim.lsp.config instead
+```
+
+**This is expected and harmless.** Some AstroCommunity language packs haven't been updated to use the new Neovim 0.11 API yet. Your LSP functionality works fine - this is just a deprecation notice. The warning will disappear when AstroCommunity updates the language packs.
+
 ## Notes
 
 - Configuration follows AstroNvim patterns and conventions
