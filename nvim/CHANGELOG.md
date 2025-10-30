@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Removed
 - nvcheatsheet.nvim - Plugin no longer available in AstroCommunity (was causing clone errors)
 
+### Fixed
+- lspconfig deprecation warnings resolved after running `:AstroUpdate` (2025-10-30)
+- AstroCommunity packages updated to use new Neovim 0.11 vim.lsp.config API
+
 ## [2025-10-30]
 
 ### Changed

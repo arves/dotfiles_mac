@@ -194,13 +194,11 @@ To test changes:
 
 ## Known Issues
 
-### lspconfig Deprecation Warning (Neovim 0.11+)
-If you see warnings about `require('lspconfig')` being deprecated:
-```
-The `require('lspconfig')` "framework" is deprecated, use vim.lsp.config instead
-```
+### lspconfig Deprecation Warning (Neovim 0.11+) - RESOLVED
+~~If you see warnings about `require('lspconfig')` being deprecated~~
 
-**This is expected and harmless.** Some AstroCommunity language packs haven't been updated to use the new Neovim 0.11 API yet. Your LSP functionality works fine - this is just a deprecation notice. The warning will disappear when AstroCommunity updates the language packs.
+**Status:** Fixed as of 2025-10-30 after running `:AstroUpdate`
+AstroCommunity language packs have been updated to use the new Neovim 0.11 `vim.lsp.config` API. The deprecation warnings are gone.
 
 ## Notes
 
