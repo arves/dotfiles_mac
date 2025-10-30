@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - CLAUDE.md for AI assistant guidance
 - Documentation structure following dotfiles repository pattern
 
+### Removed
+- nvcheatsheet.nvim - Plugin no longer available in AstroCommunity (was causing clone errors)
+
 ## [2025-10-30]
 
 ### Changed

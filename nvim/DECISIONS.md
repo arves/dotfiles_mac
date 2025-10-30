@@ -134,6 +134,16 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ---
 
+## Removed Plugins
+
+### nvcheatsheet.nvim
+**Decision:** Remove nvcheatsheet.nvim from configuration
+**Reasoning:** Plugin is no longer available in AstroCommunity, causing clone errors in lazy.nvim
+**Date:** 2025-10-30
+**Alternative:** Could add which-key.nvim or legendary.nvim for keybinding help, but AstroNvim already has good keybinding discovery through telescope
+
+---
+
 ## Documentation Strategy
 
 ### Two-Level Documentation System

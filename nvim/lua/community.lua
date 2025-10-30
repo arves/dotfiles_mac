@@ -31,7 +31,7 @@ return {
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.neogit" },
 
-  { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
+  -- { import = "astrocommunity.keybinding.nvcheatsheet-nvim" }, -- Removed: Plugin no longer available in AstroCommunity
 
   { import = "astrocommunity.lsp.inc-rename-nvim" },
 

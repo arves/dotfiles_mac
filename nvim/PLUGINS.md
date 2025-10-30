@@ -49,8 +49,8 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 - **neogit** - Magit-like Git interface for keyboard-driven workflow
 
 ### Keybinding & Help
-- **nvcheatsheet.nvim** - Searchable keybinding cheatsheet
-  - **Note:** Despite the "nv" prefix, this is a standalone plugin from AstroCommunity, not NvChad-specific
+- _(No keybinding helper plugins currently installed)_
+- **Note:** nvcheatsheet.nvim was removed as it's no longer available in AstroCommunity
 
 ### LSP Enhancement
 - **inc-rename.nvim** - Incremental LSP rename with live preview
