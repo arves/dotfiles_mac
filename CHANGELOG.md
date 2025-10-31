@@ -14,6 +14,17 @@ Each entry should include:
 
 ---
 
+## 2025-10-31
+
+### WezTerm
+- **Changed**: Disabled window transparency (opacity 0.9 → 1.0)
+- **Reason**: Improved readability and visual clarity
+
+### Neovim
+- **Changed**: Disabled transparent background for Catppuccin theme
+- **Reason**: Better readability, consistent with WezTerm change
+- **Details**: See `nvim/CHANGELOG.md`
+
 ## 2025-10-30
 
 ### Documentation

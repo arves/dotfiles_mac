@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [2025-10-31]
+
+### Changed
+- **Disabled transparent background** for Catppuccin theme
+  - Changed `transparent_background` from `true` to `false` in community.lua
+  - Reason: Improved readability and visual consistency
+- **Code formatting**: Applied stylua formatting to neoscroll configuration
+  - No functional changes, only code style improvements
+
 ## [2025-10-30] - AstroNvim v5 Migration
 
 ### Major Changes

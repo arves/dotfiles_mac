@@ -22,6 +22,14 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 **Date:** Unknown
 **Alternative:** Could use different themes per tool, but consistency reduces visual context switching
 
+### Transparency: Disabled
+**Decision:** Disable transparency for both WezTerm and Neovim
+**Reasoning:** Improved readability and visual clarity. Opaque backgrounds provide better contrast for code and terminal output.
+**Components:** WezTerm (opacity 1.0), Neovim (transparent_background: false)
+**Date:** 2025-10-31
+**Previous:** WezTerm was 0.9 opacity, Neovim had transparent background enabled
+**Trade-offs:** Lost aesthetic transparency effect, gained better readability
+
 ---
 
 ## Terminal Stack
@@ -105,11 +113,13 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 **Location:** wezterm.lua:16
 **Date:** Unknown
 
-### Background Opacity: 0.9
-**Decision:** Slight transparency (90% opaque)
-**Reasoning:** _(Document - aesthetic preference? see content behind terminal?)_
+### Background Opacity: 1.0 (Opaque)
+**Decision:** Full opacity (no transparency)
+**Reasoning:** Better readability and visual clarity for code and terminal output
 **Location:** wezterm.lua:18
-**Date:** Unknown
+**Date:** 2025-10-31 (changed from 0.9)
+**Previous:** 0.9 opacity (slight transparency)
+**Trade-offs:** Improved readability at the cost of aesthetic transparency
 
 ### Left Alt Key Behavior
 **Decision:** Left Alt sends composed keys

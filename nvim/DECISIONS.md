@@ -36,14 +36,16 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ## Theme and UI
 
-### Colorscheme: Catppuccin with Transparent Background
-**Decision:** Use Catppuccin Mocha theme with transparent background
+### Colorscheme: Catppuccin (Opaque Background)
+**Decision:** Use Catppuccin Mocha theme with opaque background
 **Reasoning:**
 - Catppuccin provides excellent syntax highlighting with comfortable colors
-- Transparent background allows terminal background to show through
-- Consistent with terminal (WezTerm) and tmux theming
+- Opaque background improves readability and contrast
+- Consistent with WezTerm opaque settings
 **Location:** `lua/community.lua:17-24`
 **Date:** Original configuration
+**Updated:** 2025-10-31 - Changed from transparent to opaque background for better readability
+**Previous:** Had `transparent_background = true`
 
 ### UI Enhancement: snacks.nvim (v5)
 **Decision:** Use snacks.nvim for UI enhancements (replaces noice.nvim, alpha.nvim, dressing.nvim in v5)
