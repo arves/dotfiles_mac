@@ -15,6 +15,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Code formatting**: Applied stylua formatting to neoscroll configuration
   - No functional changes, only code style improvements
 
+### Fixed
+- **Neoscroll zt/zz/zb mappings** throwing error
+  - Added parentheses back to neoscroll.zt/zz/zb function calls
+  - Error: "attempt to perform arithmetic on local 'half_win_duration' (a nil value)"
+  - Cause: stylua removed parentheses, but neoscroll API requires them for these functions
+
 ## [2025-10-30] - AstroNvim v5 Migration
 
 ### Major Changes
