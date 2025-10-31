@@ -17,9 +17,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 - **Neoscroll zt/zz/zb mappings** throwing error
-  - Added parentheses back to neoscroll.zt/zz/zb function calls
   - Error: "attempt to perform arithmetic on local 'half_win_duration' (a nil value)"
-  - Cause: stylua removed parentheses, but neoscroll API requires them for these functions
+  - Root cause: These functions use `half_win_duration` parameter, not `duration`
+  - Fixed by changing parameter name from `duration = 250` to `half_win_duration = 250`
 
 ## [2025-10-30] - AstroNvim v5 Migration
 

@@ -98,11 +98,11 @@ return {
         function() neoscroll.scroll(vim.api.nvim_win_get_height(0), { move_cursor = true, duration = 250 }) end
       )
 
-      vim.keymap.set({ "n", "v", "x" }, "zt", function() neoscroll.zt({ duration = 250 }) end)
+      vim.keymap.set({ "n", "v", "x" }, "zt", function() neoscroll.zt({ half_win_duration = 250 }) end)
 
-      vim.keymap.set({ "n", "v", "x" }, "zz", function() neoscroll.zz({ duration = 250 }) end)
+      vim.keymap.set({ "n", "v", "x" }, "zz", function() neoscroll.zz({ half_win_duration = 250 }) end)
 
-      vim.keymap.set({ "n", "v", "x" }, "zb", function() neoscroll.zb({ duration = 250 }) end)
+      vim.keymap.set({ "n", "v", "x" }, "zb", function() neoscroll.zb({ half_win_duration = 250 }) end)
     end,
   },
 }
