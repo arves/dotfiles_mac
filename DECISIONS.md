@@ -38,6 +38,24 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 
 ---
 
+## Git Integration
+
+### Lazygit Transparency and Theme
+**Decision:** Configure lazygit with transparent Catppuccin Mocha theme
+**Reasoning:**
+- Maintains visual consistency when opened from Neovim (`<Leader>gg`) or terminal
+- Transparent backgrounds match overall theme aesthetic
+- Catppuccin colors provide consistent look across all tools
+**Location:** lazygit/config.yml
+**Date:** 2026-01-02
+**Settings:**
+- `selectedLineBgColor: default` (transparent)
+- `defaultFgColor: default` (uses terminal foreground)
+- Catppuccin Mocha colors for borders and highlights
+**Symlink Setup:** Config tracked in `~/.config/lazygit/` and symlinked to `~/Library/Application Support/lazygit/` for git tracking
+
+---
+
 ## File Management
 
 ### File Manager: Ranger

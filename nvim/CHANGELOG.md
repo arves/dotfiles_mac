@@ -17,6 +17,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Includes: NormalFloat, Border, Title, Footer, List, Input, Preview, Box, CursorLine
   - Location: `lua/plugins/astroui.lua:17-33`
   - Reason: Snacks picker (accessed via `<Leader>ff`) now matches terminal transparency
+- **Added floating window transparent highlights** in astroui.lua
+  - Set NormalFloat and FloatBorder to transparent
+  - Makes toggleterm (lazygit), completion popups, and hover docs transparent
+  - Location: `lua/plugins/astroui.lua:34-35`
+  - Reason: All floating UI elements now match transparent theme
 
 ## [2026-01-02] - Plugin Updates
 

@@ -16,6 +16,13 @@ Each entry should include:
 
 ## 2026-01-02
 
+### Lazygit
+- **Added**: Transparent Catppuccin Mocha theme configuration
+  - Configured transparent backgrounds for lazygit UI
+  - Applied Catppuccin Mocha colors for consistency
+  - Reversed symlink direction to track config in git
+- **Reason**: Match transparent theme when opened from Neovim or terminal
+
 ### Ranger
 - **Added**: Initial ranger file manager configuration
   - Enabled image preview using iTerm2 protocol (WezTerm compatible)
@@ -47,7 +54,10 @@ Each entry should include:
 ### Neovim
 - **Changed**: Re-enabled transparent background for Catppuccin theme
 - **Added**: Snacks Picker transparent highlights for find files UI
-- **Reason**: Make Snacks picker (find files) match terminal transparency
+- **Added**: NormalFloat and FloatBorder transparent highlights
+  - Makes all floating windows transparent (toggleterm, completion, hover docs)
+  - Enables transparent lazygit when opened with `<Leader>gg`
+- **Reason**: Make Snacks picker and floating windows match terminal transparency
 - **Details**: See `nvim/CHANGELOG.md`
 
 ---

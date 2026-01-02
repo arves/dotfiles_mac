@@ -75,6 +75,18 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 **Implementation:** Override 15 Snacks Picker highlight groups (NormalFloat, Border, Title, Footer, List, Input, Preview, Box, CursorLine, PickWin, etc.) with `bg = "NONE"`
 **Note:** This is required when using transparent Catppuccin theme; without these overrides, the picker window has an opaque background
 
+### Floating Window Transparency
+**Decision:** Make all floating windows transparent
+**Reasoning:**
+- Toggleterm (used for lazygit via `<Leader>gg`) had opaque background
+- Completion popups, hover docs, and other floating windows should match theme
+- Provides consistent transparent experience across all UI elements
+**Location:** `lua/plugins/astroui.lua:34-35`
+**Date:** 2026-01-02
+**Implementation:** Override `NormalFloat` and `FloatBorder` with `bg = "NONE"`
+**Affects:** All floating windows including toggleterm (lazygit), completion, hover documentation, diagnostic popups
+**Trade-off:** All floats are transparent which may reduce contrast, but maintains visual consistency
+
 ### Completion Engine: blink.cmp (v5)
 **Decision:** Use blink.cmp instead of nvim-cmp (v5 default)
 **Reasoning:**
