@@ -38,6 +38,64 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 
 ---
 
+## File Management
+
+### File Manager: Ranger
+**Decision:** Use ranger for terminal-based file management
+**Reasoning:** Vim-style keybindings, image preview support, efficient keyboard-driven workflow
+**Location:** ranger/
+**Date:** 2026-01-02
+
+### Ranger Image Preview: iTerm2 Protocol
+**Decision:** Use iTerm2 protocol for image preview in ranger
+**Reasoning:**
+- WezTerm supports iTerm2 image protocol
+- Works well in tmux (unlike kitty protocol)
+- No additional dependencies required
+- Full-color image previews directly in terminal
+**Location:** ranger/rc.conf:74,117
+**Date:** 2026-01-02
+**Settings:**
+- `preview_images = true`
+- `preview_images_method = iterm2`
+**Alternative:** Could use w3m, ueberzug, or kitty protocol, but iTerm2 is best supported in WezTerm
+
+### Ranger Default Image Viewer: macOS Preview
+**Decision:** Use macOS Preview as default image viewer instead of GIMP
+**Reasoning:**
+- Preview is faster to launch than GIMP
+- Preview is macOS native and better integrated
+- GIMP is heavy-weight for simple image viewing
+- Preview is better suited for quick image viewing workflow
+**Location:** ranger/rifle.conf:181
+**Date:** 2026-01-02
+**Implementation:** Added `mime ^image, X, flag f = open -a Preview -- "$@"` at top of image handlers
+**Alternative:** GIMP, feh, sxiv, or other image viewers (still available as fallbacks)
+
+### FZF Transparency
+**Decision:** Configure fzf with transparent backgrounds
+**Reasoning:**
+- Maintains visual consistency with transparent WezTerm and Neovim
+- Uses `-1` value to inherit terminal's transparent background
+- Applies to all fzf interfaces (file search, command history, etc.)
+**Location:** zsh/zshrc:139,141
+**Date:** 2026-01-02
+**Settings:** Changed `bg`, `bg+`, and `border` from `#1e1e2e` to `-1`
+
+### tmux-fzf Transparency
+**Decision:** Configure tmux popups and fzf with transparent backgrounds
+**Reasoning:**
+- tmux-fzf uses tmux popup windows which had opaque backgrounds from Catppuccin
+- Need to override both TMUX_FZF_OPTIONS and popup-style
+- Maintains consistency with overall transparent theme
+**Location:** tmux/tmux.conf:83,95-96
+**Date:** 2026-01-02
+**Settings:**
+- `TMUX_FZF_OPTIONS` includes `--color=bg:-1,bg+:-1,border:-1`
+- `popup-style` set to `bg=default` (overrides Catppuccin)
+
+---
+
 ## Terminal Stack
 
 ### Terminal Emulator: WezTerm

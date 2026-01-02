@@ -11,7 +11,7 @@ This is a personal macOS dotfiles repository containing configurations for a mod
 - **Zsh** (shell with Oh My Zsh and Powerlevel10k)
 - **AeroSpace** (tiling window manager for macOS)
 - **Lazygit** (terminal UI for git)
-- **Ranger** (file manager)
+- **Ranger** (file manager with image preview)
 
 ## Repository Structure
 
@@ -105,6 +105,25 @@ tmux
 ```
 
 ## Configuration Details
+
+### Ranger (ranger/rc.conf, ranger/rifle.conf)
+
+Terminal-based file manager with vim-style keybindings.
+
+**Image Preview:**
+- **Method**: iTerm2 protocol (WezTerm compatible)
+- **Enabled**: `preview_images = true`
+- **Works in**: tmux and standalone terminal
+
+**Default Applications:**
+- **Images**: macOS Preview (Press Enter on image files)
+- **Fallbacks**: GIMP, other viewers still available
+
+**Key Features:**
+- Vim-style navigation (hjkl)
+- Three-column miller view
+- Image preview in right pane
+- File operations with vim commands (dd, yy, pp for cut/copy/paste)
 
 ### Neovim (nvim/)
 

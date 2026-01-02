@@ -16,6 +16,24 @@ Each entry should include:
 
 ## 2026-01-02
 
+### Ranger
+- **Added**: Initial ranger file manager configuration
+  - Enabled image preview using iTerm2 protocol (WezTerm compatible)
+  - Configured Preview as default image viewer (instead of GIMP)
+- **Reason**: Better file management experience with visual image previews
+
+### Zsh / FZF
+- **Changed**: Enabled transparent backgrounds for fzf
+  - Changed fzf colors from opaque (#1e1e2e) to transparent (-1)
+  - Affects all fzf interfaces (Ctrl-T, Ctrl-R, etc.)
+- **Reason**: Visual consistency with transparent terminal theme
+
+### tmux
+- **Changed**: Enabled transparent popups for tmux-fzf
+  - Set TMUX_FZF_OPTIONS with transparent color flags
+  - Override popup-style to use default background
+- **Reason**: Makes tmux fzf session switcher (Ctrl-a Ctrl-s) transparent
+
 ### AeroSpace
 - **Added**: Split orientation keybindings
   - `Alt-Shift-v` - Split vertical (stack windows top/bottom)
