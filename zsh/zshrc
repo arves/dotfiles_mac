@@ -136,9 +136,9 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 export FZF_DEFAULT_OPTS=" \
 --color=spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#b4befe,info:#cba6f7,pointer:#a6e3a1 \
---color=bg+:#1e1e2e \
+--color=bg:-1,bg+:-1 \
 --color=marker:#b4befe,fg+:#a6e3a1,prompt:#cba6f7,hl+:#f38ba8 \
---color=border:#1e1e2e \
+--color=border:-1 \
 --multi"
 
 bindkey 'ç' fzf-cd-widget
