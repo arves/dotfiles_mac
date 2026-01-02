@@ -1,1 +1,27 @@
-/Users/arves/Library/Application Support/lazygit/config.yml
+# Keybindings
+keybinding:
+  commits:
+    moveDownCommit: "<c-v>"
+    moveUpCommit: "<c-n>"
+gui:
+  useHunkModeInStagingView: false
+  theme:
+    activeBorderColor:
+      - "#b4befe" # Catppuccin Lavender
+      - bold
+    inactiveBorderColor:
+      - "#6c7086" # Catppuccin Overlay0
+    optionsTextColor:
+      - "#89b4fa" # Catppuccin Blue
+    selectedLineBgColor:
+      - default # Transparent
+    cherryPickedCommitBgColor:
+      - "#94e2d5" # Catppuccin Teal
+    cherryPickedCommitFgColor:
+      - "#89b4fa" # Catppuccin Blue
+    unstagedChangesColor:
+      - "#f38ba8" # Catppuccin Red
+    defaultFgColor:
+      - default # Use terminal foreground
+    searchingActiveBorderColor:
+      - "#f9e2af" # Catppuccin Yellow

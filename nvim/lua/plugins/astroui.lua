@@ -30,6 +30,9 @@ return {
         SnacksPickerCursorLine = { bg = "NONE" },
         SnacksPickerPickWin = { bg = "NONE" },
         SnacksPickerPickWinCurrent = { bg = "NONE" },
+        -- Make toggleterm (lazygit) transparent
+        NormalFloat = { bg = "NONE" },
+        FloatBorder = { bg = "NONE" },
       },
       astrodark = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
