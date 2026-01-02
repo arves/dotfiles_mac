@@ -14,6 +14,20 @@ Each entry should include:
 
 ---
 
+## 2026-01-02
+
+### WezTerm
+- **Changed**: Re-enabled window transparency (opacity 1.0 → 0.8)
+- **Reason**: Experimenting with transparency for better visual aesthetics
+
+### Neovim
+- **Changed**: Re-enabled transparent background for Catppuccin theme
+- **Added**: Snacks Picker transparent highlights for find files UI
+- **Reason**: Make Snacks picker (find files) match terminal transparency
+- **Details**: See `nvim/CHANGELOG.md`
+
+---
+
 ## 2025-10-31
 
 ### WezTerm

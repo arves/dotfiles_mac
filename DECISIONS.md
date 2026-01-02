@@ -22,13 +22,19 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 **Date:** Unknown
 **Alternative:** Could use different themes per tool, but consistency reduces visual context switching
 
-### Transparency: Disabled
-**Decision:** Disable transparency for both WezTerm and Neovim
-**Reasoning:** Improved readability and visual clarity. Opaque backgrounds provide better contrast for code and terminal output.
-**Components:** WezTerm (opacity 1.0), Neovim (transparent_background: false)
-**Date:** 2025-10-31
-**Previous:** WezTerm was 0.9 opacity, Neovim had transparent background enabled
-**Trade-offs:** Lost aesthetic transparency effect, gained better readability
+### Transparency: Enabled
+**Decision:** Enable transparency for both WezTerm and Neovim
+**Reasoning:** Visual aesthetics and cohesive desktop experience. Transparent backgrounds allow desktop wallpaper to show through, creating a unified visual theme.
+**Components:**
+- WezTerm (opacity 0.8)
+- Neovim (transparent_background: true)
+- Neovim Snacks Picker (all UI components transparent)
+**Date:** 2026-01-02 (re-enabled)
+**History:**
+- Originally enabled with 0.9 opacity
+- 2025-10-31: Disabled for better readability (opacity 1.0)
+- 2026-01-02: Re-enabled at 0.8 opacity for experimentation
+**Trade-offs:** Aesthetic transparency effect vs. potential readability concerns (0.8 opacity provides good balance)
 
 ---
 

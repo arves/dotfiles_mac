@@ -9,6 +9,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [2026-01-02]
 
 ### Changed
+- **Re-enabled transparent background** for Catppuccin theme
+  - Changed `transparent_background` from `false` to `true` in community.lua
+  - Reason: Experimenting with transparency for better visual aesthetics
+- **Added Snacks Picker transparent highlights** in astroui.lua
+  - Made all Snacks Picker UI components transparent (find files, etc.)
+  - Includes: NormalFloat, Border, Title, Footer, List, Input, Preview, Box, CursorLine
+  - Location: `lua/plugins/astroui.lua:17-33`
+  - Reason: Snacks picker (accessed via `<Leader>ff`) now matches terminal transparency
+
+## [2026-01-02] - Plugin Updates
+
+### Changed
 - **Updated plugin versions** via lazy-lock.json
   - Core: AstroNvim, astrocommunity, lazy.nvim
   - Completion: blink.cmp, LuaSnip

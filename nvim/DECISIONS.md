@@ -36,16 +36,18 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ## Theme and UI
 
-### Colorscheme: Catppuccin (Opaque Background)
-**Decision:** Use Catppuccin Mocha theme with opaque background
+### Colorscheme: Catppuccin (Transparent Background)
+**Decision:** Use Catppuccin Mocha theme with transparent background
 **Reasoning:**
 - Catppuccin provides excellent syntax highlighting with comfortable colors
-- Opaque background improves readability and contrast
-- Consistent with WezTerm opaque settings
+- Transparent background provides visual consistency with terminal transparency
+- Aesthetic preference for seeing desktop wallpaper through editor
 **Location:** `lua/community.lua:17-24`
 **Date:** Original configuration
-**Updated:** 2025-10-31 - Changed from transparent to opaque background for better readability
-**Previous:** Had `transparent_background = true`
+**History:**
+- 2025-10-31: Changed to opaque background for better readability
+- 2026-01-02: Re-enabled transparency for visual aesthetics and experimentation
+**Current:** `transparent_background = true`
 
 ### UI Enhancement: snacks.nvim (v5)
 **Decision:** Use snacks.nvim for UI enhancements (replaces noice.nvim, alpha.nvim, dressing.nvim in v5)
@@ -61,6 +63,17 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 - ~~alpha.nvim~~ (dashboard) - Replaced by snacks dashboard
 - ~~dressing.nvim~~ (input/select) - Replaced by snacks
 **Trade-off:** Lost custom noice routes for silencing CopilotChat messages, but snacks provides better overall integration
+
+### Snacks Picker Transparency
+**Decision:** Make all Snacks Picker UI components transparent
+**Reasoning:**
+- AstroNvim v5 uses snacks.nvim for file finding (`<Leader>ff`) instead of Telescope
+- Default picker has opaque background which conflicts with transparent theme
+- Adding transparent highlights ensures visual consistency across all UI elements
+**Location:** `lua/plugins/astroui.lua:17-33`
+**Date:** 2026-01-02
+**Implementation:** Override 15 Snacks Picker highlight groups (NormalFloat, Border, Title, Footer, List, Input, Preview, Box, CursorLine, PickWin, etc.) with `bg = "NONE"`
+**Note:** This is required when using transparent Catppuccin theme; without these overrides, the picker window has an opaque background
 
 ### Completion Engine: blink.cmp (v5)
 **Decision:** Use blink.cmp instead of nvim-cmp (v5 default)
