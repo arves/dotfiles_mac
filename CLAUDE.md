@@ -210,11 +210,14 @@ i3-style tiling window manager for macOS.
 - `Alt-Enter` - New WezTerm window
 - `Alt-hjkl` - Focus window (wraps around workspace)
 - `Alt-Shift-hjkl` - Move window
+- `Alt-Shift-v` - Split vertical (next window stacks top/bottom)
+- `Alt-Shift-b` - Split horizontal (next window side by side)
 - `Alt-f` - Fullscreen
 - `Alt-s` - Vertical accordion layout
 - `Alt-w` - Horizontal accordion layout
 - `Alt-e` - Tiles layout (toggle orientation)
 - `Alt-Shift-Space` - Toggle floating/tiling
+- `Alt-r` - Enter resize mode (then use hjkl to resize, Enter/Esc to exit)
 
 **Features:**
 - Mouse follows focus

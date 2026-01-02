@@ -16,6 +16,12 @@ Each entry should include:
 
 ## 2026-01-02
 
+### AeroSpace
+- **Added**: Split orientation keybindings
+  - `Alt-Shift-v` - Split vertical (stack windows top/bottom)
+  - `Alt-Shift-b` - Split horizontal (windows side by side)
+- **Reason**: Provides manual control over window split orientation before opening new windows
+
 ### WezTerm
 - **Changed**: Re-enabled window transparency (opacity 1.0 → 0.8)
 - **Reason**: Experimenting with transparency for better visual aesthetics

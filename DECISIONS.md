@@ -145,8 +145,21 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 ### Keybinding Prefix: Alt (Option)
 **Decision:** Use Alt/Option key as primary modifier
 **Reasoning:** Doesn't conflict with tmux (Ctrl-a) or system shortcuts (Cmd), i3-compatible
-**Location:** aerospace.toml:17-50
+**Location:** aerospace.toml:17-85
 **Date:** Unknown
+
+### Split Orientation Control
+**Decision:** Add explicit keybindings for controlling window split orientation
+**Keybindings:**
+- `Alt-Shift-v` - Split vertical (next window stacks top/bottom)
+- `Alt-Shift-b` - Split horizontal (next window appears side by side)
+**Reasoning:**
+- Provides manual control over how windows tile before opening them
+- Useful when default behavior doesn't match desired layout
+- Follows i3 pattern of explicit split commands
+**Location:** aerospace.toml:39-40
+**Date:** 2026-01-02
+**Usage:** Press split command before opening a new window with `Alt-Enter` to control orientation
 
 ### Terminal Launcher: WezTerm via AppleScript
 **Decision:** Alt-Enter spawns new WezTerm window
