@@ -6,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [2026-01-02]
+
+### Changed
+- **Updated plugin versions** via lazy-lock.json
+  - Core: AstroNvim, astrocommunity, lazy.nvim
+  - Completion: blink.cmp, LuaSnip
+  - LSP/Tools: aerial.nvim, copilot.lua, none-ls.nvim
+  - UI: catppuccin, neo-tree.nvim, trouble.nvim, snacks.nvim
+  - Git: neogit, gopher.nvim
+  - Navigation: harpoon, oil.nvim
+  - Testing: neotest and adapters, nvim-coverage
+  - Language: rustaceanvim, nvim-dap and adapters, venv-selector.nvim
+  - Editing: nvim-autopairs, nvim-surround, nvim-treesitter-textobjects
+  - Utilities: neoconf.nvim, package-info.nvim, schemastore.nvim, todo-comments.nvim
+
+### Fixed
+- **Neoscroll function call syntax**
+  - Removed unnecessary parentheses around table arguments for zt/zz/zb functions
+  - Changed from `neoscroll.zt({ half_win_duration = 250 })` to `neoscroll.zt { half_win_duration = 250 }`
+  - Improves code style consistency with Lua conventions
+
 ## [2025-10-31]
 
 ### Changed
