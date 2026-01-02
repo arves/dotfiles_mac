@@ -36,8 +36,8 @@ on-focus-changed = "move-mouse window-lazy-center"
 
     # Consider using 'join-with' command as a 'split' replacement if you want to enable
     # normalizations
-    # alt-h = 'split horizontal'
-    # alt-v = 'split vertical'
+    alt-shift-v = 'split vertical'
+    alt-shift-b = 'split horizontal'
 
     alt-f = 'fullscreen'
 
