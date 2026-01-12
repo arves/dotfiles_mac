@@ -242,6 +242,7 @@ i3-style tiling window manager for macOS.
 - Mouse follows focus
 - Auto-start at login
 - Normalizations disabled (i3-like behavior)
+- Window gaps: 20px inner and outer gaps for visual spacing
 
 ## Key Integration Points
 

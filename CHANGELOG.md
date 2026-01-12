@@ -14,6 +14,16 @@ Each entry should include:
 
 ---
 
+## 2026-01-12
+
+### AeroSpace
+- **Enabled**: Window gaps configuration
+  - Inner gaps: 20px (horizontal and vertical)
+  - Outer gaps: 20px (left, bottom, top, right)
+- **Reason**: Provides visual spacing between tiled windows and screen edges for better aesthetics
+
+---
+
 ## 2026-01-02
 
 ### Lazygit
