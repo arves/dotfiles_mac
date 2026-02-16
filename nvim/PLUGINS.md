@@ -84,6 +84,12 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
   - **Added:** Via astrocommunity
   - **Location:** `lua/community.lua:44`
 
+### Docker
+- **lazydocker.nvim** - Manage Docker containers, images, and volumes via lazydocker in a floating terminal
+  - **Requirements:** lazydocker installed (`brew install lazydocker`)
+  - **Added:** Via astrocommunity (`docker.lazydocker`)
+  - **Location:** `lua/community.lua`
+
 ### Terminal Integration
 - **vim-tmux-navigator** - Seamless navigation between tmux panes and Neovim splits
   - **Keybindings:** `<C-h/j/k/l>` for unified navigation

@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [2026-02-18]
+
+### Added
+- **lazydocker.nvim** - Docker management via lazydocker in a floating terminal
+  - Imported from astrocommunity (`docker.lazydocker`)
+  - Location: `lua/community.lua`
+
 ## [2026-01-02]
 
 ### Changed

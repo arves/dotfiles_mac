@@ -52,6 +52,9 @@ Plugins imported from AstroCommunity (see `lua/community.lua`):
 ### Colorscheme
 - catppuccin - Catppuccin theme with transparent background
 
+### Docker
+- lazydocker.nvim - Manage Docker via lazydocker in a floating terminal
+
 ### Diagnostics
 - trouble.nvim - Pretty list for diagnostics, references, quickfix
 
