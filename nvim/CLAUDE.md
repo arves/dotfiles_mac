@@ -97,7 +97,7 @@ Plugins imported from AstroCommunity (see `lua/community.lua`):
 - lua - Lua language support
 - markdown - Markdown support
 - php - PHP language support
-- **python-ruff** - Python with ruff formatter/linter
+- **python** (base + basedpyright + ruff) - Python with basedpyright LSP and ruff formatter/linter
 - rust - Rust language support
 - typescript-all-in-one - TypeScript/JavaScript support
 
@@ -125,10 +125,12 @@ All AstroCommunity plugin imports with custom configurations for:
 
 ## Language Support
 
-Python support is provided through the `python-ruff` pack which includes:
-- **pyright** - LSP server for type checking and completions
-- **ruff** - Fast linter and formatter
-- **debugpy** - Python debugger
+Python support is provided through the modular `python` pack (base + basedpyright + ruff):
+- **basedpyright** - LSP server for type checking and completions (fork of pyright with enhanced features)
+- **ruff** - Fast linter and formatter (replaces black, isort, flake8, pylint)
+- **debugpy** - Python debugger (from base pack)
+- **venv-selector.nvim** - Virtual environment selection (from base pack)
+- **neotest-python** - Test runner integration (from base pack)
 
 Other languages with full support:
 - TypeScript/JavaScript

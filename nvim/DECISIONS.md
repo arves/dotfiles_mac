@@ -112,16 +112,17 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 **Location:** `lua/community.lua:77-85`
 **Date:** Original configuration
 
-### Python: Ruff over Black/isort
-**Decision:** Use python-ruff pack (pyright + ruff) instead of traditional black + isort
+### Python: Modular Pack (base + basedpyright + ruff)
+**Decision:** Use modular python pack with basedpyright and ruff instead of deprecated python-ruff pack
 **Reasoning:**
-- Ruff is 10-100x faster than black
-- Consolidates multiple tools (black, isort, flake8, pylint) into one
-- Provides both formatting and linting
-- Modern, actively developed Rust-based tooling
-**Location:** `lua/community.lua:83`
-**Date:** Original configuration
-**Alternative:** black + isort + flake8 (traditional Python tooling)
+- AstroCommunity restructured python packs into composable subpacks (base, basedpyright, ruff, black, isort)
+- basedpyright is an enhanced fork of pyright with additional diagnostics and features
+- Ruff is 10-100x faster than black, consolidates multiple tools (black, isort, flake8, pylint) into one
+- Modular approach allows choosing exactly which tools to use
+- Default `python` pack includes black + isort which we don't need (ruff handles both)
+**Location:** `lua/community.lua:57-60`
+**Date:** 2026-02-24 (migrated from python-ruff)
+**Alternative:** Full `python` pack (includes black + isort — redundant with ruff)
 
 ### Language Coverage
 **Decision:** Support multiple languages (Python, TypeScript, Rust, Go, Lua, Bash, PHP, Markdown)

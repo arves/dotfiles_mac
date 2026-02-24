@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [2026-02-24]
+
+### Changed
+- **Migrated Python pack** from `python-ruff` to modular `python` subpacks
+  - `astrocommunity.pack.python.base` — Treesitter, debugpy, venv-selector, neotest-python
+  - `astrocommunity.pack.python.basedpyright` — Enhanced pyright fork for LSP
+  - `astrocommunity.pack.python.ruff` — Ruff language server + conform.nvim formatting
+  - Reason: AstroCommunity restructured python packs into composable subpacks; basedpyright replaces pyright with enhanced features
+
 ## [2026-02-18]
 
 ### Added

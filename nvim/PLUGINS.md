@@ -119,12 +119,14 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 
 AstroCommunity language packs provide pre-configured LSP, formatters, linters, and debuggers.
 
-### Python (python-ruff)
-- **LSP:** pyright - Type checking and intelligent completions
-- **Formatter:** ruff_format - Fast Rust-based formatter
-- **Linter:** ruff - Replaces flake8, pylint, isort, and more
-- **Debugger:** debugpy
-- **Location:** `lua/community.lua:83`
+### Python (modular: base + basedpyright + ruff)
+- **Base pack:** Treesitter (python, toml), debugpy, venv-selector.nvim, neotest-python
+- **LSP:** basedpyright - Enhanced fork of pyright with better type checking and completions
+- **Formatter:** ruff_format + ruff_organize_imports via conform.nvim
+- **Linter:** ruff language server
+- **Location:** `lua/community.lua:57-60`
+- **Why modular:** AstroCommunity restructured python-ruff into composable subpacks (base, basedpyright, ruff, black, isort)
+- **Why basedpyright:** Enhanced fork of pyright with additional diagnostics and features
 - **Why Ruff:** 10-100x faster than black, consolidates multiple tools
 
 ### TypeScript/JavaScript (typescript-all-in-one)

@@ -54,7 +54,10 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.php" },
-  { import = "astrocommunity.pack.python-ruff" },
+  -- Base pack with basedpyright and ruff
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.basedpyright" },
+  { import = "astrocommunity.pack.python.ruff" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
 
