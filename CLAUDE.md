@@ -74,9 +74,30 @@ This repository uses a two-level documentation approach:
 
 ## Initial Setup
 
-### Linking Configuration Files
+### 1. Clone the Repository
 
-Use the setup script to create symlinks from home directory to config files:
+```bash
+# Back up existing config if needed
+mv ~/.config ~/.config.bak
+
+# Clone dotfiles to ~/.config
+git clone git@github.com:arves/dotfiles_mac.git ~/.config
+```
+
+### 2. Prerequisites
+
+Install the following (e.g., via Homebrew):
+
+```bash
+brew install neovim tmux zsh wezterm lazygit lazydocker ranger fzf
+brew install zsh-vi-mode powerlevel10k zoxide eza
+brew install --cask nikitabobko/tap/aerospace
+```
+
+- **Font:** Install [MesloLGS Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/releases) (used by WezTerm and Powerlevel10k)
+- **Oh My Zsh:** `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+### 3. Create Symlinks
 
 ```bash
 bash ~/.config/scripts/init_local.sh
@@ -88,18 +109,29 @@ The script creates these symlinks:
 - `~/.zprofile` → `~/.config/zprofile/zprofile`
 - `~/.tmux.conf` → `~/.config/tmux/tmux.conf`
 - `~/.p10k.zsh` → `~/.config/p10k/p10k.zsh`
+- `~/Library/Application Support/lazygit/config.yml` → `~/.config/lazygit/config.yml`
+- `~/Library/Application Support/lazydocker/config.yml` → `~/.config/lazydocker/config.yml`
 
-### Installing tmux Plugins
+### 4. Install tmux Plugins
 
-tmux uses TPM (Tmux Plugin Manager). After linking tmux.conf:
+tmux uses TPM (Tmux Plugin Manager):
 
 ```bash
-# Install TPM if not already installed
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Start tmux and install plugins
 tmux
 # Press: Ctrl-a + I (capital i) to install plugins
+```
+
+### 5. Launch Neovim
+
+AstroNvim bootstraps automatically on first launch — lazy.nvim is cloned, then all plugins are installed:
+
+```bash
+nvim
+# Wait for plugins to install, then restart Neovim
+# Run :Mason to install LSP servers, formatters, and linters
 ```
 
 ## Configuration Details
