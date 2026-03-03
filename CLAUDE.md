@@ -79,10 +79,6 @@ This repository uses a two-level documentation approach:
 Use the setup script to create symlinks from home directory to config files:
 
 ```bash
-# Edit init_local.sh first to update "youruser" to your actual username
-vim ~/.config/scripts/init_local.sh
-
-# Then run it (or manually create symlinks)
 bash ~/.config/scripts/init_local.sh
 ```
 
