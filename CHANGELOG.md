@@ -14,6 +14,17 @@ Each entry should include:
 
 ---
 
+## 2026-03-03
+
+### Lazydocker
+- **Added**: Catppuccin Mocha theme configuration matching lazygit
+  - Transparent backgrounds for consistency
+  - Same color scheme (Lavender active border, Overlay0 inactive, Blue options)
+- **Added**: Config tracked in `~/.config/lazydocker/` with symlink to `~/Library/Application Support/lazydocker/`
+- **Updated**: `init_local.sh` with lazygit and lazydocker Application Support symlinks
+
+---
+
 ## 2026-01-12
 
 ### AeroSpace

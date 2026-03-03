@@ -56,6 +56,17 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 
 ---
 
+## Docker Management
+
+### Lazydocker Theme: Catppuccin Mocha (Transparent)
+**Decision:** Configure lazydocker with same Catppuccin Mocha theme as lazygit
+**Reasoning:** Visual consistency across all Jesse Duffield tools (lazygit, lazydocker) and overall transparent theme
+**Location:** lazydocker/config.yml
+**Date:** 2026-03-03
+**Symlink Setup:** Config tracked in `~/.config/lazydocker/` and symlinked to `~/Library/Application Support/lazydocker/` (same pattern as lazygit)
+
+---
+
 ## File Management
 
 ### File Manager: Ranger

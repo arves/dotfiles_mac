@@ -1,0 +1,11 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#b4befe" # Catppuccin Lavender
+      - bold
+    inactiveBorderColor:
+      - "#6c7086" # Catppuccin Overlay0
+    selectedLineBgColor:
+      - default # Transparent
+    optionsTextColor:
+      - "#89b4fa" # Catppuccin Blue

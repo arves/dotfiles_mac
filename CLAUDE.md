@@ -11,6 +11,7 @@ This is a personal macOS dotfiles repository containing configurations for a mod
 - **Zsh** (shell with Oh My Zsh and Powerlevel10k)
 - **AeroSpace** (tiling window manager for macOS)
 - **Lazygit** (terminal UI for git)
+- **Lazydocker** (terminal UI for Docker)
 - **Ranger** (file manager with image preview)
 
 ## Repository Structure
@@ -29,6 +30,7 @@ This is a personal macOS dotfiles repository containing configurations for a mod
 ├── p10k/           # Powerlevel10k theme config
 ├── aerospace/      # AeroSpace window manager config
 ├── lazygit/        # Lazygit configuration
+├── lazydocker/     # Lazydocker configuration
 ├── ranger/         # Ranger file manager config
 ├── git/            # Git ignore patterns
 ├── scripts/        # Setup and utility scripts
@@ -105,6 +107,21 @@ tmux
 ```
 
 ## Configuration Details
+
+### Lazygit (lazygit/config.yml)
+
+Terminal UI for git with Catppuccin Mocha theme.
+
+**Theme:** Catppuccin Mocha with transparent backgrounds
+**Symlink:** `~/Library/Application Support/lazygit/config.yml` → `~/.config/lazygit/config.yml`
+
+### Lazydocker (lazydocker/config.yml)
+
+Terminal UI for Docker with Catppuccin Mocha theme (matching lazygit).
+
+**Theme:** Catppuccin Mocha with transparent backgrounds
+**Symlink:** `~/Library/Application Support/lazydocker/config.yml` → `~/.config/lazydocker/config.yml`
+**Neovim integration:** `lazydocker.nvim` plugin provides `<Leader>ld` to open lazydocker in a floating terminal
 
 ### Ranger (ranger/rc.conf, ranger/rifle.conf)
 
