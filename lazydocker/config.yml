@@ -1,11 +1,15 @@
 gui:
   theme:
     activeBorderColor:
-      - "#b4befe" # Catppuccin Lavender
+      - "#fab387" # Catppuccin Peach (matches lazygit)
       - bold
     inactiveBorderColor:
       - "#6c7086" # Catppuccin Overlay0
     selectedLineBgColor:
-      - default # Transparent
+      - "#45475a" # Catppuccin Surface1 (matches lazygit)
     optionsTextColor:
       - "#89b4fa" # Catppuccin Blue
+    defaultFgColor:
+      - "#cdd6f4" # Catppuccin Text
+    unstagedChangesColor:
+      - "#f38ba8" # Catppuccin Red

@@ -14,6 +14,17 @@ Each entry should include:
 
 ---
 
+## 2026-03-05
+
+### Lazydocker
+- **Updated**: Theme colors to match AstroNvim-generated lazygit theme
+  - activeBorderColor: Lavender → Peach (#fab387) to match lazygit
+  - selectedLineBgColor: transparent → Surface1 (#45475a) to match lazygit
+  - Added defaultFgColor (#cdd6f4) and unstagedChangesColor (#f38ba8)
+- **Reason**: lazygit and lazydocker had different color palettes when opened from Neovim because AstroNvim dynamically generates lazygit's theme from Neovim highlights, while lazydocker used a static config
+
+---
+
 ## 2026-03-03
 
 ### Lazydocker

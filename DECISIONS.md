@@ -58,11 +58,13 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 
 ## Docker Management
 
-### Lazydocker Theme: Catppuccin Mocha (Transparent)
-**Decision:** Configure lazydocker with same Catppuccin Mocha theme as lazygit
-**Reasoning:** Visual consistency across all Jesse Duffield tools (lazygit, lazydocker) and overall transparent theme
+### Lazydocker Theme: Match AstroNvim-generated Lazygit Theme
+**Decision:** Align lazydocker colors with the theme AstroNvim generates for lazygit
+**Reasoning:** AstroNvim dynamically generates a lazygit theme from Neovim highlight groups (see `~/.cache/nvim/astroui-lazygit-config.yml`). Lazydocker uses a static config, so we manually match the same Catppuccin Mocha colors to ensure both tools look identical when opened from Neovim.
 **Location:** lazydocker/config.yml
-**Date:** 2026-03-03
+**Date:** 2026-03-05 (updated from 2026-03-03)
+**Key colors:** activeBorderColor: Peach (#fab387), selectedLineBgColor: Surface1 (#45475a), defaultFgColor: Text (#cdd6f4)
+**Trade-offs:** If the Neovim colorscheme changes, lazygit auto-adapts but lazydocker must be manually updated
 **Symlink Setup:** Config tracked in `~/.config/lazydocker/` and symlinked to `~/Library/Application Support/lazydocker/` (same pattern as lazygit)
 
 ---
