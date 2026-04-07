@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [2026-04-07]
+
+### Changed
+- **Moved copilotchat-nvim import** from `editing-support` to `ai` category
+  - `astrocommunity.editing-support.copilotchat-nvim` → `astrocommunity.ai.copilotchat-nvim`
+  - Reason: AstroCommunity relocated the module to the new `ai` category
+- **Updated plugin versions** via lazy-lock.json
+
 ## [2026-02-24]
 
 ### Changed

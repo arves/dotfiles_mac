@@ -32,9 +32,6 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 - **blink-cmp-git** - git completion source (blink.cmp compatible)
 - **copilot-lua-cmp** - GitHub Copilot integration (updated for blink.cmp support)
 
-#### AI Assistance
-- **copilotchat.nvim** - AI pair programming chat interface
-
 **Note:** Removed in v5 migration:
 - ~~cmp-nvim-lua~~ - nvim-cmp only, not compatible with blink.cmp
 - ~~cmp-spell~~ - nvim-cmp only, not compatible with blink.cmp
@@ -54,7 +51,10 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 
 ### Editing Support
 - **zen-mode.nvim** - Distraction-free writing mode
-- **nvim-surround** - Add/change/delete surrounding delimiter pairs (quotes, brackets, tags)
+
+### AI
+- **copilotchat.nvim** - AI pair programming chat interface
+  - **Location:** `lua/community.lua` (imported from `astrocommunity.ai.copilotchat-nvim`)
 
 ### Git Integration
 - **diffview.nvim** - Git diff and merge tool with multiple view modes
@@ -70,7 +70,7 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 ### Motion & Navigation
 - **flash.nvim** - Enhanced search and navigation with visual feedback
 - **harpoon** - Quick navigation to frequently-used files (mark and jump)
-- **nvim-surround** - Manipulate surrounding characters efficiently
+- **nvim-surround** - Add/change/delete surrounding delimiter pairs (quotes, brackets, tags)
 
 ### Split & Window Management
 - **windows.nvim** - Automatic window resizing with smooth animations

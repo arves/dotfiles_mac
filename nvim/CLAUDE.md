@@ -60,6 +60,8 @@ Plugins imported from AstroCommunity (see `lua/community.lua`):
 
 ### Editing Support
 - zen-mode.nvim - Distraction-free writing
+
+### AI
 - copilotchat.nvim - AI pair programming chat
 
 ### Git

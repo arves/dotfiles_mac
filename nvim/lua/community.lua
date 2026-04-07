@@ -28,7 +28,7 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
 
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
-  { import = "astrocommunity.editing-support.copilotchat-nvim" },
+  { import = "astrocommunity.ai.copilotchat-nvim" },
 
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.neogit" },
