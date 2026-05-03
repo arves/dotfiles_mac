@@ -14,6 +14,21 @@ Each entry should include:
 
 ---
 
+## 2026-04-10
+
+### Cross-tool: Disabled transparency
+
+Turned off transparency across all configurations. Previous transparent values are preserved as comments for easy re-enabling.
+
+- **WezTerm**: opacity 0.8 → 1.0
+- **Neovim**: Catppuccin `transparent_background` → false; removed Snacks Picker and floating window `bg = "NONE"` highlight overrides (commented out)
+- **Zsh/FZF**: Replaced transparent `-1` backgrounds with Catppuccin Base (#1e1e2e), Surface0 (#313244), Overlay0 (#6c7086)
+- **tmux**: tmux-fzf and popup-style switched from transparent to Catppuccin Base background
+- **Lazygit**: `selectedLineBgColor` and `defaultFgColor` switched from `default` (transparent) to explicit Catppuccin colors
+- **Reason**: Preference for opaque backgrounds for better readability
+
+---
+
 ## 2026-03-05
 
 ### Lazydocker

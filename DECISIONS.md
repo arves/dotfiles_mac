@@ -22,19 +22,22 @@ For Neovim-specific decisions, see `nvim/DECISIONS.md`.
 **Date:** Unknown
 **Alternative:** Could use different themes per tool, but consistency reduces visual context switching
 
-### Transparency: Enabled
-**Decision:** Enable transparency for both WezTerm and Neovim
-**Reasoning:** Visual aesthetics and cohesive desktop experience. Transparent backgrounds allow desktop wallpaper to show through, creating a unified visual theme.
+### Transparency: Disabled
+**Decision:** Disable transparency across all tools
+**Reasoning:** Better readability with opaque backgrounds. All transparent values preserved as comments for quick re-enabling.
 **Components:**
-- WezTerm (opacity 0.8)
-- Neovim (transparent_background: true)
-- Neovim Snacks Picker (all UI components transparent)
-**Date:** 2026-01-02 (re-enabled)
+- WezTerm (opacity 1.0)
+- Neovim (transparent_background: false, Snacks Picker/float overrides commented out)
+- FZF (Catppuccin Base #1e1e2e instead of -1)
+- tmux popups and tmux-fzf (Catppuccin Base background)
+- Lazygit (explicit Catppuccin colors instead of default/transparent)
+**Date:** 2026-04-10 (disabled)
 **History:**
 - Originally enabled with 0.9 opacity
 - 2025-10-31: Disabled for better readability (opacity 1.0)
 - 2026-01-02: Re-enabled at 0.8 opacity for experimentation
-**Trade-offs:** Aesthetic transparency effect vs. potential readability concerns (0.8 opacity provides good balance)
+- 2026-04-10: Disabled across all tools, transparent values preserved as comments
+**Trade-offs:** Loses desktop wallpaper show-through but gains consistent readability
 
 ---
 

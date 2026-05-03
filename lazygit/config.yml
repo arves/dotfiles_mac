@@ -14,7 +14,7 @@ gui:
     optionsTextColor:
       - "#89b4fa" # Catppuccin Blue
     selectedLineBgColor:
-      - default # Transparent
+      - "#45475a" # Catppuccin Surface1 (use "default" for transparent mode)
     cherryPickedCommitBgColor:
       - "#94e2d5" # Catppuccin Teal
     cherryPickedCommitFgColor:
@@ -22,6 +22,6 @@ gui:
     unstagedChangesColor:
       - "#f38ba8" # Catppuccin Red
     defaultFgColor:
-      - default # Use terminal foreground
+      - "#cdd6f4" # Catppuccin Text (use "default" for transparent mode)
     searchingActiveBorderColor:
       - "#f9e2af" # Catppuccin Yellow
