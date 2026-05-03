@@ -30,7 +30,6 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 #### Completion Sources
 - **blink-cmp-tmux** - tmux completion source (blink.cmp compatible)
 - **blink-cmp-git** - git completion source (blink.cmp compatible)
-- **copilot-lua-cmp** - GitHub Copilot integration (updated for blink.cmp support)
 
 **Note:** Removed in v5 migration:
 - ~~cmp-nvim-lua~~ - nvim-cmp only, not compatible with blink.cmp
@@ -51,10 +50,6 @@ Plugins imported from AstroNvim/astrocommunity. See `lua/community.lua` for impo
 
 ### Editing Support
 - **zen-mode.nvim** - Distraction-free writing mode
-
-### AI
-- **copilotchat.nvim** - AI pair programming chat interface
-  - **Location:** `lua/community.lua` (imported from `astrocommunity.ai.copilotchat-nvim`)
 
 ### Git Integration
 - **diffview.nvim** - Git diff and merge tool with multiple view modes
@@ -187,6 +182,11 @@ When adding a new plugin:
 ## Plugin Removal Notes
 
 _(Document removed plugins and why)_
+
+### copilot.lua / copilot-lua-cmp / copilotchat.nvim
+- **Removed:** 2026-05-04
+- **Reason:** GitHub Copilot integration removed at user request
+- **Replaced by:** None
 
 ### Template
 ```markdown

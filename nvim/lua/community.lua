@@ -5,7 +5,6 @@ return {
   -- Completion plugins
   { import = "astrocommunity.completion.blink-cmp-tmux" },
   { import = "astrocommunity.completion.blink-cmp-git" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" }, -- Now supports blink.cmp
   -- NOTE: Removed cmp-nvim-lua and cmp-spell (nvim-cmp only, not compatible with blink.cmp)
   -- blink.cmp has built-in LSP, buffer, path, and snippets sources
 
@@ -14,11 +13,11 @@ return {
 
   -- colorscheme
   { import = "astrocommunity.colorscheme.catppuccin" },
-  -- override default background to transparent for catppuccin/nvim
+  -- override catppuccin/nvim options
   {
     "catppuccin/nvim",
     opts = {
-      transparent_background = true,
+      transparent_background = false, -- set to true for transparent mode
     },
   },
 
@@ -28,7 +27,6 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
 
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
-  { import = "astrocommunity.ai.copilotchat-nvim" },
 
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.neogit" },

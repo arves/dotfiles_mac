@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [2026-05-04]
+
+### Removed
+- **GitHub Copilot integration** removed in full
+  - Dropped `astrocommunity.completion.copilot-lua-cmp` import from `community.lua`
+  - Dropped `astrocommunity.ai.copilotchat-nvim` import from `community.lua`
+  - Removed all `<leader>U…` Copilot keymaps from `lua/plugins/mappings.lua`
+  - Cleared dead commented copilot code from `lua/plugins/cmp.lua`
+  - Removed `CopilotChat.nvim` and `copilot.lua` entries from `lazy-lock.json`
+  - Reason: User no longer wants Copilot integration
+
+## [2026-04-10]
+
+### Changed
+- **Disabled transparent background** for Catppuccin theme
+  - Changed `transparent_background` from `true` to `false` in community.lua
+  - Commented out all Snacks Picker and floating window `bg = "NONE"` highlight overrides in astroui.lua
+  - Transparent values preserved as comments for easy re-enabling
+  - Reason: Preference for opaque backgrounds for better readability
+
 ## [2026-04-07]
 
 ### Changed

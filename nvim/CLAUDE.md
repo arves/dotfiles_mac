@@ -44,7 +44,6 @@ Plugins imported from AstroCommunity (see `lua/community.lua`):
 - **Built-in sources**: LSP, buffer, path, snippets
 - blink-cmp-tmux - tmux completion source
 - blink-cmp-git - git completion source
-- copilot-lua-cmp - GitHub Copilot integration (supports blink.cmp)
 
 ### File Explorer
 - oil-nvim - Edit filesystem like a buffer
@@ -60,9 +59,6 @@ Plugins imported from AstroCommunity (see `lua/community.lua`):
 
 ### Editing Support
 - zen-mode.nvim - Distraction-free writing
-
-### AI
-- copilotchat.nvim - AI pair programming chat
 
 ### Git
 - diffview.nvim - Git diff and merge tool
@@ -155,10 +151,6 @@ Other languages with full support:
 - **vim-tmux-navigator** (from astrocommunity) provides:
   - Seamless navigation between tmux panes and Neovim splits
   - Uses `<C-h/j/k/l>` for unified navigation
-
-### Copilot Integration
-- GitHub Copilot for code suggestions
-- CopilotChat for AI pair programming
 
 ## Development Workflow
 

@@ -36,18 +36,19 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 
 ## Theme and UI
 
-### Colorscheme: Catppuccin (Transparent Background)
-**Decision:** Use Catppuccin Mocha theme with transparent background
+### Colorscheme: Catppuccin (Opaque Background)
+**Decision:** Use Catppuccin Mocha theme with opaque background
 **Reasoning:**
 - Catppuccin provides excellent syntax highlighting with comfortable colors
-- Transparent background provides visual consistency with terminal transparency
-- Aesthetic preference for seeing desktop wallpaper through editor
+- Opaque background provides better readability
+- Transparent values preserved as comments for easy re-enabling
 **Location:** `lua/community.lua:17-24`
 **Date:** Original configuration
 **History:**
 - 2025-10-31: Changed to opaque background for better readability
 - 2026-01-02: Re-enabled transparency for visual aesthetics and experimentation
-**Current:** `transparent_background = true`
+- 2026-04-10: Disabled transparency, preserved as comments
+**Current:** `transparent_background = false`
 
 ### UI Enhancement: snacks.nvim (v5)
 **Decision:** Use snacks.nvim for UI enhancements (replaces noice.nvim, alpha.nvim, dressing.nvim in v5)
@@ -64,28 +65,15 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 - ~~dressing.nvim~~ (input/select) - Replaced by snacks
 **Trade-off:** Lost custom noice routes for silencing CopilotChat messages, but snacks provides better overall integration
 
-### Snacks Picker Transparency
-**Decision:** Make all Snacks Picker UI components transparent
+### Snacks Picker & Floating Window Transparency: Disabled
+**Decision:** Disabled transparent highlight overrides for Snacks Picker and floating windows
 **Reasoning:**
-- AstroNvim v5 uses snacks.nvim for file finding (`<Leader>ff`) instead of Telescope
-- Default picker has opaque background which conflicts with transparent theme
-- Adding transparent highlights ensures visual consistency across all UI elements
-**Location:** `lua/plugins/astroui.lua:17-33`
-**Date:** 2026-01-02
-**Implementation:** Override 15 Snacks Picker highlight groups (NormalFloat, Border, Title, Footer, List, Input, Preview, Box, CursorLine, PickWin, etc.) with `bg = "NONE"`
-**Note:** This is required when using transparent Catppuccin theme; without these overrides, the picker window has an opaque background
-
-### Floating Window Transparency
-**Decision:** Make all floating windows transparent
-**Reasoning:**
-- Toggleterm (used for lazygit via `<Leader>gg`) had opaque background
-- Completion popups, hover docs, and other floating windows should match theme
-- Provides consistent transparent experience across all UI elements
-**Location:** `lua/plugins/astroui.lua:34-35`
-**Date:** 2026-01-02
-**Implementation:** Override `NormalFloat` and `FloatBorder` with `bg = "NONE"`
-**Affects:** All floating windows including toggleterm (lazygit), completion, hover documentation, diagnostic popups
-**Trade-off:** All floats are transparent which may reduce contrast, but maintains visual consistency
+- Transparency disabled across all tools for better readability
+- All 17 `bg = "NONE"` overrides commented out in astroui.lua for easy re-enabling
+- Required only when using transparent Catppuccin theme
+**Location:** `lua/plugins/astroui.lua` (commented-out block)
+**Date:** 2026-04-10 (disabled; originally added 2026-01-02)
+**To re-enable:** Uncomment the highlight overrides in astroui.lua and set `transparent_background = true` in community.lua
 
 ### Completion Engine: blink.cmp (v5)
 **Decision:** Use blink.cmp instead of nvim-cmp (v5 default)
@@ -131,12 +119,6 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 **Date:** Original configuration
 
 ## Editing and Motion
-
-### Copilot Integration
-**Decision:** Use GitHub Copilot with CopilotChat
-**Reasoning:** AI-assisted coding significantly improves productivity. CopilotChat provides conversational interface for code explanations and refactoring.
-**Location:** `lua/community.lua:10,29`
-**Date:** Original configuration
 
 ### Motion Plugins: flash.nvim, harpoon, nvim-surround
 **Decision:** Use multiple motion enhancement plugins
@@ -242,6 +224,18 @@ This file documents the reasoning behind configuration choices in this AstroNvim
 **Reasoning:** Plugin is no longer available in AstroCommunity, causing clone errors in lazy.nvim
 **Date:** 2025-10-30
 **Alternative:** Could add which-key.nvim or legendary.nvim for keybinding help, but AstroNvim already has good keybinding discovery through telescope
+
+### GitHub Copilot integration (copilot.lua + copilot-lua-cmp + copilotchat.nvim)
+**Decision:** Remove all Copilot integration from the configuration
+**Reasoning:** User no longer wants GitHub Copilot integration in Neovim
+**Removed:**
+- `astrocommunity.completion.copilot-lua-cmp` import (community.lua)
+- `astrocommunity.ai.copilotchat-nvim` import (community.lua)
+- All `<leader>U…` Copilot keymaps (lua/plugins/mappings.lua)
+- Dead commented copilot mapping block (lua/plugins/cmp.lua)
+- `CopilotChat.nvim` and `copilot.lua` lockfile entries
+**Date:** 2026-05-04
+**Alternative:** None — the user can use external AI tooling (Claude Code, etc.) outside Neovim
 
 ---
 
