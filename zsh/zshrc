@@ -175,3 +175,6 @@ export PATH="/opt/homebrew/opt/tcl-tk@8/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/tcl-tk@8/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk@8/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/tcl-tk@8/lib/pkgconfig"
+
+# fnm — Node version manager (auto-switches on cd via .nvmrc)
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
