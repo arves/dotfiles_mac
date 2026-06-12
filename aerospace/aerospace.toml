@@ -59,6 +59,23 @@ on-focus-changed = "move-mouse window-lazy-center"
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
     alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+
+    # Cycle through workspaces (next/previous)
+    alt-tab = 'workspace --wrap-around next'
+    alt-shift-tab = 'workspace --wrap-around prev'
+
+    # Reuse the freed-up native "switch desktop" keys for AeroSpace workspaces
+    ctrl-left = 'workspace --wrap-around prev'
+    ctrl-right = 'workspace --wrap-around next'
+
+    # Jump back to the previously focused workspace
+    alt-backtick = 'workspace-back-and-forth'
 
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
